@@ -34,10 +34,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FzU-Gr-XeZ">
-                                <rect key="frame" x="16" y="103" width="361" height="695"/>
+                                <rect key="frame" x="16" y="137" width="361" height="661"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moj-5i-ftm">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="158.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="150.33333333333334"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Mind">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-3o-4mm">
-                                        <rect key="frame" x="0.0" y="178.66666666666669" width="361" height="159"/>
+                                        <rect key="frame" x="0.0" y="170.33333333333331" width="361" height="150.33333333333331"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Body">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -59,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57R-R2-Zqq">
-                                        <rect key="frame" x="0.0" y="357.66666666666669" width="361" height="158.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="340.66666666666669" width="361" height="150"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Soul">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrM-iM-EdG">
-                                        <rect key="frame" x="0.0" y="536.33333333333337" width="361" height="158.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="510.66666666666657" width="361" height="150.33333333333331"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Reminder Interval">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="dCu-sP-LOG" firstAttribute="bottom" secondItem="FzU-Gr-XeZ" secondAttribute="bottom" constant="20" id="ywl-eW-g51"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rmh-OL-Ei2"/>
+                    <navigationItem key="navigationItem" prompt="Reminders for your whole self" id="rmh-OL-Ei2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9H-1J-P0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,10 +331,10 @@
             </objects>
             <point key="canvasLocation" x="206.87022900763358" y="664.78873239436621"/>
         </scene>
-        <!--Mind View Controller-->
+        <!--Body View Controller-->
         <scene sceneID="MbT-xc-YBw">
             <objects>
-                <viewController id="s8G-r5-UyF" userLabel="Mind View Controller" customClass="BodyViewController" sceneMemberID="viewController">
+                <viewController id="s8G-r5-UyF" customClass="BodyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dhK-tK-1G8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="1021" y="-52"/>
         </scene>
-        <!--Mind View Controller-->
+        <!--Soul View Controller-->
         <scene sceneID="jOD-iH-2AL">
             <objects>
-                <viewController id="MwR-0V-6f0" userLabel="Mind View Controller" customClass="SoulViewController" sceneMemberID="viewController">
+                <viewController id="MwR-0V-6f0" customClass="SoulViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0FC-Zc-Mpc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

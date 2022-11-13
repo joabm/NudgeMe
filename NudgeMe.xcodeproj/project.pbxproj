@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48A316382921A74100F48C28 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316372921A74100F48C28 /* DataController.swift */; };
+		48A3163C2921A87200F48C28 /* DaylightClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3163B2921A87200F48C28 /* DaylightClient.swift */; };
+		48A3163E2921A8B200F48C28 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3163D2921A8B200F48C28 /* APIResponse.swift */; };
 		48E90D34291767A000755D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D33291767A000755D4B /* AppDelegate.swift */; };
 		48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D35291767A000755D4B /* SceneDelegate.swift */; };
 		48E90D38291767A000755D4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D37291767A000755D4B /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48A316372921A74100F48C28 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		48A3163B2921A87200F48C28 /* DaylightClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightClient.swift; sourceTree = "<group>"; };
+		48A3163D2921A8B200F48C28 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		48E90D30291767A000755D4B /* NudgeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NudgeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E90D33291767A000755D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48E90D35291767A000755D4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48A316362921A6C300F48C28 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				48E90D3C291767A000755D4B /* NudgeMe.xcdatamodeld */,
+				48A316372921A74100F48C28 /* DataController.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		48A316392921A84400F48C28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48A3163A2921A85400F48C28 /* Client */,
+				48A316362921A6C300F48C28 /* Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48A3163A2921A85400F48C28 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				48A3163B2921A87200F48C28 /* DaylightClient.swift */,
+				48A3163D2921A8B200F48C28 /* APIResponse.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		48A3163F2921A8EF00F48C28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				48E90D37291767A000755D4B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		48A316412921A93900F48C28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48E90D39291767A000755D4B /* Main.storyboard */,
+				48E90D3F291767A100755D4B /* Assets.xcassets */,
+				48E90D41291767A100755D4B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		48E90D27291767A000755D4B = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +111,10 @@
 			children = (
 				48E90D33291767A000755D4B /* AppDelegate.swift */,
 				48E90D35291767A000755D4B /* SceneDelegate.swift */,
-				48E90D37291767A000755D4B /* ViewController.swift */,
-				48E90D39291767A000755D4B /* Main.storyboard */,
-				48E90D3F291767A100755D4B /* Assets.xcassets */,
-				48E90D41291767A100755D4B /* LaunchScreen.storyboard */,
 				48E90D44291767A100755D4B /* Info.plist */,
-				48E90D3C291767A000755D4B /* NudgeMe.xcdatamodeld */,
+				48A3163F2921A8EF00F48C28 /* Controller */,
+				48A316392921A84400F48C28 /* Model */,
+				48A316412921A93900F48C28 /* View */,
 			);
 			path = NudgeMe;
 			sourceTree = "<group>";
@@ -141,8 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A3163E2921A8B200F48C28 /* APIResponse.swift in Sources */,
+				48A3163C2921A87200F48C28 /* DaylightClient.swift in Sources */,
 				48E90D38291767A000755D4B /* ViewController.swift in Sources */,
 				48E90D3E291767A000755D4B /* NudgeMe.xcdatamodeld in Sources */,
+				48A316382921A74100F48C28 /* DataController.swift in Sources */,
 				48E90D34291767A000755D4B /* AppDelegate.swift in Sources */,
 				48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */,
 			);

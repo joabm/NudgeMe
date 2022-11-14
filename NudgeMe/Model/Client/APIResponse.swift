@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct APIResponse: Codable {
+    let results: [Daylight]
+}
+
+struct Daylight: Codable {
+    let sunrise: String
+    let sunset: String
+}

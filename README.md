@@ -22,6 +22,6 @@
   - This app was written for use with iPhone
   
 ## Resources
-  - Thanks to Anand Nimje for another view of Parsing JSON in with Swift.  https://betterprogramming.pub/json-parsing-in-swift-2498099b78f
+  - Thanks to Lizzie Shipton for a great article on implementing the CoreLocation framework for iOS.  https://www.abstractapi.com/guides/swift-geolocation
   - The many contributions at https://stackoverflow.com and the Udacity technical forums were helpful in the making of this app
 

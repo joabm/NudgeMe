@@ -14,6 +14,7 @@
 		48A316452921AE6A00F48C28 /* BodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316442921AE6A00F48C28 /* BodyViewController.swift */; };
 		48A316472921AE8100F48C28 /* SoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316462921AE8100F48C28 /* SoulViewController.swift */; };
 		48A316492921AE9F00F48C28 /* IntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316482921AE9F00F48C28 /* IntervalViewController.swift */; };
+		48A3164C2921FE1800F48C28 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3164B2921FE1800F48C28 /* Location.swift */; };
 		48E90D34291767A000755D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D33291767A000755D4B /* AppDelegate.swift */; };
 		48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D35291767A000755D4B /* SceneDelegate.swift */; };
 		48E90D38291767A000755D4B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E90D37291767A000755D4B /* MainViewController.swift */; };
@@ -31,6 +32,7 @@
 		48A316442921AE6A00F48C28 /* BodyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyViewController.swift; sourceTree = "<group>"; };
 		48A316462921AE8100F48C28 /* SoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulViewController.swift; sourceTree = "<group>"; };
 		48A316482921AE9F00F48C28 /* IntervalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewController.swift; sourceTree = "<group>"; };
+		48A3164B2921FE1800F48C28 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		48E90D30291767A000755D4B /* NudgeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NudgeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E90D33291767A000755D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48E90D35291767A000755D4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		48A316392921A84400F48C28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				48A3164A2921FE0000F48C28 /* Location */,
 				48A3163A2921A85400F48C28 /* Client */,
 				48A316362921A6C300F48C28 /* Data */,
 			);
@@ -100,6 +103,14 @@
 				48E90D41291767A100755D4B /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		48A3164A2921FE0000F48C28 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				48A3164B2921FE1800F48C28 /* Location.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		48E90D27291767A000755D4B = {
@@ -212,6 +223,7 @@
 				48E90D3E291767A000755D4B /* NudgeMe.xcdatamodeld in Sources */,
 				48A316382921A74100F48C28 /* DataController.swift in Sources */,
 				48E90D34291767A000755D4B /* AppDelegate.swift in Sources */,
+				48A3164C2921FE1800F48C28 /* Location.swift in Sources */,
 				48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

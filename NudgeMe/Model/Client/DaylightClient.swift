@@ -35,11 +35,11 @@ class DaylightClient {
                 }
                 return
             }
-            debugPrint(String(data: data, encoding: .utf8)!)
+            //debugPrint(String(data: data, encoding: .utf8)!)
             let decoder = JSONDecoder()
             do {
                 let response = try decoder.decode(APIResponse.self, from: data)
-                //debugPrint(response.results.daylight)
+                //debugPrint(response)
                 DispatchQueue.main.async {
                     completionHandler(response, nil)
                 }

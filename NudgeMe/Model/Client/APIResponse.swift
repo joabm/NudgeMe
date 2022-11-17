@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIResponse: Codable {
-    let results: [Daylight]
+    let results: Daylight
 }
 
 struct Daylight: Codable {

@@ -13,7 +13,8 @@ class IntervalViewContoller: UIViewController {
     
     @IBOutlet weak var daylightInfoText: UITextView!
     @IBOutlet weak var attributionText: UITextView!
-            
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getLocationCoordinates()
@@ -57,12 +58,14 @@ class IntervalViewContoller: UIViewController {
             debugPrint("User did not authorize location data")
             
         case .authorizedAlways, .authorizedWhenInUse:
+            setActivityIndicator(true)
             currentLoc = locationManager.location
             latitude = currentLoc.coordinate.latitude
             longitude = currentLoc.coordinate.longitude
             debugPrint("current latitude: \(latitude)")
             debugPrint("currenct longitude: \(longitude)")
             getDaylightValues(latitude: latitude, longitude: longitude)
+            setActivityIndicator(false)
         @unknown default:
             fatalError()
         }
@@ -85,7 +88,15 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
-    // MARK: Activity Indicator and Failure Messate
+    // MARK: Activity Indicator and Failure Message
+    
+    func setActivityIndicator(_ isFinding: Bool) {
+        if isFinding {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
+    }
     
     func showFailure(message: String) {
         let alertVC = UIAlertController(title: "Daylight Data", message: message, preferredStyle: .alert)

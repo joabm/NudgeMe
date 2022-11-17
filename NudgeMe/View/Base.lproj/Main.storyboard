@@ -214,19 +214,22 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="172.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Daylight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhF-n9-yh9">
-                                                        <rect key="frame" x="91.666666666666686" y="0.0" width="178" height="52.333333333333336"/>
+                                                        <rect key="frame" x="91.666666666666686" y="0.0" width="178" height="37.333333333333336"/>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Default Text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-WR-2I0" userLabel="Daylight Text View">
-                                                        <rect key="frame" x="130" y="60.333333333333343" width="101" height="52.333333333333343"/>
+                                                        <rect key="frame" x="130" y="45.333333333333343" width="101" height="37"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-zc-5rQ">
+                                                        <rect key="frame" x="170.66666666666666" y="90.333333333333343" width="20" height="37.333333333333343"/>
+                                                    </activityIndicatorView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Default Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OMI-fL-hEh" userLabel="Attribution Text View">
-                                                        <rect key="frame" x="146.66666666666666" y="120.66666666666666" width="68" height="52"/>
+                                                        <rect key="frame" x="146.66666666666666" y="135.66666666666666" width="68" height="37"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -311,6 +314,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YLh-QT-hGE"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="RUH-zc-5rQ" id="VDm-vp-HA7"/>
                         <outlet property="attributionText" destination="OMI-fL-hEh" id="RAQ-Xk-xaq"/>
                         <outlet property="daylightInfoText" destination="Uab-WR-2I0" id="o6G-Dk-ySe"/>
                     </connections>

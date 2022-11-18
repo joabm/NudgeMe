@@ -129,14 +129,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HoI-Wn-WOp" userLabel="First Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="97.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiC-qL-OUM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO THINK:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiC-qL-OUM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-YN-cHB">
-                                                        <rect key="frame" x="97.333333333333343" y="0.0" width="263.66666666666663" height="97.666666666666671"/>
+                                                        <rect key="frame" x="89.333333333333343" y="0.0" width="271.66666666666663" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                     </textField>
@@ -145,14 +145,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RJU-YE-cQg" userLabel="Second Stack View">
                                                 <rect key="frame" x="0.0" y="117.66666666666669" width="361" height="98"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-lf-BXB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="98"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO THINK:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-lf-BXB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3B-g5-fru">
-                                                        <rect key="frame" x="99.666666666666657" y="0.0" width="261.33333333333337" height="98"/>
+                                                        <rect key="frame" x="89.333333333333343" y="0.0" width="271.66666666666663" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -161,14 +161,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1fS-RU-0Pj" userLabel="Third Stack View">
                                                 <rect key="frame" x="0.0" y="235.66666666666666" width="361" height="97.666666666666657"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkj-kk-i08">
-                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO THINK:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkj-kk-i08">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8se-Lb-R0d">
-                                                        <rect key="frame" x="100" y="0.0" width="261" height="97.666666666666671"/>
+                                                        <rect key="frame" x="89.333333333333343" y="0.0" width="271.66666666666663" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -204,32 +204,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jO6-ob-cDO" userLabel="Root Stack View">
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jO6-ob-cDO" userLabel="Root Stack View">
                                 <rect key="frame" x="16" y="103" width="361" height="715"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-eQ-Ly8" userLabel="Date Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-eQ-Ly8" userLabel="Date Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="353.66666666666669"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1MU-RO-thE" userLabel="Today Stack View">
+                                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1MU-RO-thE" userLabel="Today Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="172.66666666666666"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Daylight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhF-n9-yh9">
-                                                        <rect key="frame" x="91.666666666666686" y="0.0" width="178" height="37.333333333333336"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                                        <rect key="frame" x="91.666666666666686" y="0.0" width="178" height="45.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Default Text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-WR-2I0" userLabel="Daylight Text View">
-                                                        <rect key="frame" x="130" y="45.333333333333343" width="101" height="37"/>
+                                                        <rect key="frame" x="130" y="53.333333333333343" width="101" height="55"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-zc-5rQ">
-                                                        <rect key="frame" x="170.66666666666666" y="90.333333333333343" width="20" height="37.333333333333343"/>
+                                                        <rect key="frame" x="170.66666666666666" y="116.33333333333334" width="20" height="30"/>
                                                     </activityIndicatorView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Default Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OMI-fL-hEh" userLabel="Attribution Text View">
-                                                        <rect key="frame" x="146.66666666666666" y="135.66666666666666" width="68" height="37"/>
+                                                        <rect key="frame" x="146.66666666666666" y="154.33333333333331" width="68" height="18.333333333333343"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -238,17 +238,17 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r30-2z-aOl" userLabel="Time Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r30-2z-aOl" userLabel="Time Stack View">
                                                 <rect key="frame" x="0.0" y="180.66666666666669" width="361" height="173"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminder Interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWR-Vu-0g0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="82.333333333333329"/>
+                                                        <rect key="frame" x="66.000000000000014" y="0.0" width="229.33333333333337" height="82.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H4a-i1-fi7" userLabel="Interval Stack View">
-                                                        <rect key="frame" x="0.0" y="90.333333333333314" width="361" height="82.666666666666686"/>
+                                                        <rect key="frame" x="29" y="90.333333333333314" width="303.33333333333331" height="82.666666666666686"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-iQ-Xgf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="82.666666666666671"/>
@@ -257,16 +257,16 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YSD-1A-hNG">
-                                                                <rect key="frame" x="49.666666666666671" y="0.0" width="125.00000000000001" height="82.666666666666671"/>
+                                                                <rect key="frame" x="49.666666666666664" y="0.0" width="99.666666666666686" height="82.666666666666671"/>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
-                                                                <rect key="frame" x="182.66666666666666" y="0.0" width="33.666666666666657" height="82.666666666666671"/>
+                                                                <rect key="frame" x="157.33333333333334" y="0.0" width="34" height="82.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="iYm-sh-I6U">
-                                                                <rect key="frame" x="224.33333333333337" y="0.0" width="136.66666666666663" height="82.666666666666671"/>
+                                                                <rect key="frame" x="199.33333333333334" y="0.0" width="104.00000000000003" height="82.666666666666671"/>
                                                             </datePicker>
                                                         </subviews>
                                                     </stackView>
@@ -354,14 +354,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-YO-FhN" userLabel="First Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="97.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLz-Zj-DYI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO MOVE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLz-Zj-DYI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="79" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="my2-me-VeX">
-                                                        <rect key="frame" x="97.333333333333343" y="0.0" width="263.66666666666663" height="97.666666666666671"/>
+                                                        <rect key="frame" x="87" y="0.0" width="274" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                     </textField>
@@ -370,14 +370,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JFq-zu-74o" userLabel="Second Stack View">
                                                 <rect key="frame" x="0.0" y="117.66666666666669" width="361" height="98"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-zg-2fA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="98"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO MOVE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-zg-2fA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="79" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUw-HW-Zgh">
-                                                        <rect key="frame" x="99.666666666666657" y="0.0" width="261.33333333333337" height="98"/>
+                                                        <rect key="frame" x="87" y="0.0" width="274" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -386,14 +386,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xvb-vw-Fp4" userLabel="Third Stack View">
                                                 <rect key="frame" x="0.0" y="235.66666666666666" width="361" height="97.666666666666657"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUQ-2L-rGT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO MOVE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUQ-2L-rGT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="79" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-Wb-Yzp">
-                                                        <rect key="frame" x="100" y="0.0" width="261" height="97.666666666666671"/>
+                                                        <rect key="frame" x="87" y="0.0" width="274" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -452,14 +452,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oVw-Ny-72U" userLabel="First Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="97.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAE-4G-Yw4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO BE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAE-4G-Yw4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rDX-2T-y8V">
-                                                        <rect key="frame" x="97.333333333333343" y="0.0" width="263.66666666666663" height="97.666666666666671"/>
+                                                        <rect key="frame" x="60" y="0.0" width="301" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                     </textField>
@@ -468,14 +468,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jil-a7-XQe" userLabel="Second Stack View">
                                                 <rect key="frame" x="0.0" y="117.66666666666669" width="361" height="98"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS8-W2-2BY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="98"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO BE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS8-W2-2BY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJ4-n3-5yf">
-                                                        <rect key="frame" x="99.666666666666657" y="0.0" width="261.33333333333337" height="98"/>
+                                                        <rect key="frame" x="60" y="0.0" width="301" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -484,14 +484,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fGL-wP-8v5" userLabel="Third Stack View">
                                                 <rect key="frame" x="0.0" y="235.66666666666666" width="361" height="97.666666666666657"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder 3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpU-HO-EZe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="92" height="97.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO BE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpU-HO-EZe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awB-7j-nMS">
-                                                        <rect key="frame" x="100" y="0.0" width="261" height="97.666666666666671"/>
+                                                        <rect key="frame" x="60" y="0.0" width="301" height="97.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>

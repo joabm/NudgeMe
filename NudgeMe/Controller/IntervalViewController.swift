@@ -17,7 +17,7 @@ class IntervalViewContoller: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getLocationCoordinates()
+        //getLocationCoordinates()
     }
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class IntervalViewContoller: UIViewController {
         let url = URL(string: "https://sunrise-sunset.org")!
         attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
         attributionText.attributedText = attributionString
-//        getLocationCoordinates()
+        getLocationCoordinates()
         
     }
     
@@ -53,13 +53,19 @@ class IntervalViewContoller: UIViewController {
         
         switch status {
         case .notDetermined, .restricted, .denied:
-            let unauthorizedString = NSMutableAttributedString(string: "Approximate location data is not yet authorized")
-            daylightInfoText.attributedText = unauthorizedString
-            debugPrint("User did not authorize location data")
+            daylightInfoText.textColor = UIColor.systemBlue
+            daylightInfoText.text = "Approximate location not authorized"
+            debugPrint("The user did not authorize location data")
             
         case .authorizedAlways, .authorizedWhenInUse:
             setActivityIndicator(true)
             currentLoc = locationManager.location
+            guard currentLoc != nil else {
+                daylightInfoText.textColor = UIColor.systemOrange
+                daylightInfoText.text = "Location information not available"
+                setActivityIndicator(false)
+                return
+            }
             latitude = currentLoc.coordinate.latitude
             longitude = currentLoc.coordinate.longitude
             debugPrint("current latitude: \(latitude)")
@@ -67,7 +73,7 @@ class IntervalViewContoller: UIViewController {
             getDaylightValues(latitude: latitude, longitude: longitude)
             setActivityIndicator(false)
         @unknown default:
-            fatalError()
+            debugPrint("Check for new cases for CLAuthorizationStatus")
         }
                 
     }
@@ -76,6 +82,12 @@ class IntervalViewContoller: UIViewController {
         DaylightClient.getDaylightHours(latitude: latitude, longitude: longitude) { (data, error) in
             debugPrint("getDaylightHours call to API has been executed")
             if error == nil {
+                guard data != nil else {
+                    self.daylightInfoText.textColor = UIColor.cyan
+                    self.daylightInfoText.text = "Daylight API is empty at this location"
+                    self.setActivityIndicator(false)
+                    return
+                }
                 let sunrise: String = (data?.results.sunrise)!
                 let sunset: String = (data?.results.sunset)!
                 self.daylightInfoText.text = "Sunrise: \(sunrise)  Sunset: \(sunset)"

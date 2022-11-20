@@ -14,11 +14,14 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var daylightInfoText: UITextView!
     @IBOutlet weak var attributionText: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var rootStackView: UIStackView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //getLocationCoordinates()
+        getLocationData()
     }
+    
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +30,21 @@ class IntervalViewContoller: UIViewController {
         let url = URL(string: "https://sunrise-sunset.org")!
         attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
         attributionText.attributedText = attributionString
-        getLocationCoordinates()
         
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isPortrait {
+            rootStackView.axis = .vertical
+        } else {
+            rootStackView.axis = .horizontal
+        }
     }
     
     // MARK: Daylight and Location API
     
-    func getLocationCoordinates() {
+    func getLocationData() {
         
         let locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
@@ -71,7 +82,6 @@ class IntervalViewContoller: UIViewController {
             debugPrint("current latitude: \(latitude)")
             debugPrint("currenct longitude: \(longitude)")
             getDaylightValues(latitude: latitude, longitude: longitude)
-            setActivityIndicator(false)
         @unknown default:
             debugPrint("Check for new cases for CLAuthorizationStatus")
         }
@@ -82,12 +92,7 @@ class IntervalViewContoller: UIViewController {
         DaylightClient.getDaylightHours(latitude: latitude, longitude: longitude) { (data, error) in
             debugPrint("getDaylightHours call to API has been executed")
             if error == nil {
-                guard data != nil else {
-                    self.daylightInfoText.textColor = UIColor.cyan
-                    self.daylightInfoText.text = "Daylight API is empty at this location"
-                    self.setActivityIndicator(false)
-                    return
-                }
+                self.setActivityIndicator(false)
                 let sunrise: String = (data?.results.sunrise)!
                 let sunset: String = (data?.results.sunset)!
                 self.daylightInfoText.text = "Sunrise: \(sunrise)  Sunset: \(sunset)"
@@ -95,6 +100,7 @@ class IntervalViewContoller: UIViewController {
                 debugPrint("sunset: \(sunset)")
             }
             else {
+                self.setActivityIndicator(false)
                 self.showFailure(message: "\(error?.localizedDescription ?? "error")")
             }
         }

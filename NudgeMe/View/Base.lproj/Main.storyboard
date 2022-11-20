@@ -191,6 +191,12 @@
                     <navigationItem key="navigationItem" id="Dut-ft-l09">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="K90-xn-hub"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mindTextView" destination="EVy-k0-1Ea" id="JEp-Nv-ZEq"/>
+                        <outlet property="reminderOne" destination="Fbu-YN-cHB" id="5Ea-gV-70I"/>
+                        <outlet property="reminderThree" destination="8se-Lb-R0d" id="Oup-My-xDP"/>
+                        <outlet property="reminderTwo" destination="W3B-g5-fru" id="KUZ-Rb-i40"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lb-Fx-5ve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,6 +424,12 @@
                     <navigationItem key="navigationItem" id="XJv-No-nXz">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="fkx-W8-4Ky"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="G33-48-ltz" id="FsE-cV-4fI"/>
+                        <outlet property="reminderOne" destination="my2-me-VeX" id="i4a-ei-1MK"/>
+                        <outlet property="reminderThree" destination="jzi-Wb-Yzp" id="zO4-el-ND2"/>
+                        <outlet property="reminderTwo" destination="kUw-HW-Zgh" id="qes-tH-1YE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYm-HH-qNN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -516,6 +528,12 @@
                     <navigationItem key="navigationItem" id="BOr-d3-j3N">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="cHg-Fz-BiV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reminderOne" destination="rDX-2T-y8V" id="kth-in-b4F"/>
+                        <outlet property="reminderThree" destination="awB-7j-nMS" id="tS3-jW-Hh4"/>
+                        <outlet property="reminderTwo" destination="UJ4-n3-5yf" id="oy8-WZ-Tdo"/>
+                        <outlet property="soulTextView" destination="mYN-dG-nKa" id="iBm-sX-DFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lew-jN-EwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

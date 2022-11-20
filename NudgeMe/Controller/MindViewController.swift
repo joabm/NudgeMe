@@ -10,5 +10,9 @@ import UIKit
 
 class MindViewController: UIViewController {
     
+    @IBOutlet weak var mindTextView: UITextView!
+    @IBOutlet weak var reminderOne: UITextField!
+    @IBOutlet weak var reminderTwo: UITextField!
+    @IBOutlet weak var reminderThree: UITextField!
     
 }

@@ -69,9 +69,9 @@
 		48A316392921A84400F48C28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				48A316362921A6C300F48C28 /* Data */,
 				48A3164A2921FE0000F48C28 /* Location */,
 				48A3163A2921A85400F48C28 /* Client */,
-				48A316362921A6C300F48C28 /* Data */,
 			);
 			path = Model;
 			sourceTree = "<group>";

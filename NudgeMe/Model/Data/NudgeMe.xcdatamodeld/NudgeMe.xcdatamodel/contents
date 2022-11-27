@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Reminders" representedClassName="Reminders" syncable="YES" codeGenerationType="class">
-        <attribute name="body" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="mind" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="soul" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="message" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="category" inverseEntity="Message"/>
+    </entity>
+    <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="message" inverseEntity="Category"/>
     </entity>
 </model>

@@ -11,7 +11,7 @@ import CoreData
 // class instead of struct because it will be accessed by all view controllers
 // and we don't want to create copies.
 
-class DataController {
+class DataController: ObservableObject {
     
     // MARK: Persistent Container setup
     

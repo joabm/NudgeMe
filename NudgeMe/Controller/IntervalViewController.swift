@@ -8,8 +8,33 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreData
+
 
 class IntervalViewContoller: UIViewController {
+    
+    // MARK: CoreData
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //var dataController: DataController!
+    var fetchedResultsController: NSFetchedResultsController<Category>!
+    
+    
+    fileprivate func setupFetchResultsController() {
+        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "list")
+                
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Data Error: \(error.localizedDescription)")
+        }
+    }
+    
+    // MARK: Outlets
     
     @IBOutlet weak var daylightInfoText: UITextView!
     @IBOutlet weak var attributionText: UITextView!
@@ -30,6 +55,7 @@ class IntervalViewContoller: UIViewController {
         let url = URL(string: "https://sunrise-sunset.org")!
         attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
         attributionText.attributedText = attributionString
+        
         
     }
     
@@ -104,6 +130,17 @@ class IntervalViewContoller: UIViewController {
                 self.showFailure(message: "\(error?.localizedDescription ?? "error")")
             }
         }
+    }
+    
+    // MARK: set up random
+    
+    func createReminderArray() {
+        // get object for each category and create a reminder array with random values,
+        // one from each category.
+    }
+    
+    func getrandomTime() {
+        //create times for reminders
     }
     
     // MARK: Activity Indicator and Failure Message

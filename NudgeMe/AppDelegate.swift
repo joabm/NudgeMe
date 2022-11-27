@@ -13,6 +13,8 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let dataController = DataController(modelName: "NudgeMe")
+    
     //instantiate UNUserNotificationCenter and CLLocationManager frameworks API
     let center = UNUserNotificationCenter.current()
 

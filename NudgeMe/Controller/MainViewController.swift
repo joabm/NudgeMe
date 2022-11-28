@@ -14,7 +14,8 @@ class MainViewController: UIViewController {
 //
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 //    var fetchedResultsController: NSFetchedResultsController<Category>!
-
+    @IBOutlet weak var backgroundGradientView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,11 @@ class MainViewController: UIViewController {
 //        addCategoryObject(name: "soul")
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     
 //    func addCategoryObject(name:String) {
 //        let category = Category(context: context)

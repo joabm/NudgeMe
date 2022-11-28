@@ -29,7 +29,7 @@
         <scene sceneID="bAN-7y-2tu">
             <objects>
                 <viewController id="ak3-VE-5Ny" userLabel="Main View Controller" customClass="MainViewController" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q3v-iI-0uj">
+                    <view key="view" contentMode="scaleToFill" id="q3v-iI-0uj" userLabel="Gradient View" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -102,7 +102,7 @@
         <scene sceneID="4mx-gw-9j8">
             <objects>
                 <viewController id="vT9-E3-35l" userLabel="Mind View Controller" customClass="MindViewController" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U1s-kK-rbK">
+                    <view key="view" contentMode="scaleToFill" id="U1s-kK-rbK" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -183,7 +183,7 @@
         <scene sceneID="CYl-PR-zS5">
             <objects>
                 <viewController id="s2j-5f-dyC" customClass="IntervalViewContoller" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0">
+                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -328,7 +328,7 @@
         <scene sceneID="MbT-xc-YBw">
             <objects>
                 <viewController id="s8G-r5-UyF" customClass="BodyViewController" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dhK-tK-1G8">
+                    <view key="view" contentMode="scaleToFill" id="dhK-tK-1G8" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -409,7 +409,7 @@
         <scene sceneID="jOD-iH-2AL">
             <objects>
                 <viewController id="MwR-0V-6f0" customClass="SoulViewController" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0FC-Zc-Mpc">
+                    <view key="view" contentMode="scaleToFill" id="0FC-Zc-Mpc" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

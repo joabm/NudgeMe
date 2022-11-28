@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482417AF29354F770037B3F8 /* Gradient View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482417AE29354F770037B3F8 /* Gradient View.swift */; };
+		482417B129354FA30037B3F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482417B029354FA30037B3F8 /* Colors.swift */; };
+		482417B52935567E0037B3F8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482417B42935567E0037B3F8 /* Colors.xcassets */; };
 		4866BC6729332E290013FDEF /* NudgeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4866BC6529332E290013FDEF /* NudgeMe.xcdatamodeld */; };
 		48A2BE792922B7CD00DA82BC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */; };
 		48A316382921A74100F48C28 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316372921A74100F48C28 /* DataController.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482417AE29354F770037B3F8 /* Gradient View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient View.swift"; sourceTree = "<group>"; };
+		482417B029354FA30037B3F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		482417B42935567E0037B3F8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4866BC6629332E290013FDEF /* NudgeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NudgeMe.xcdatamodel; sourceTree = "<group>"; };
 		48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		48A316372921A74100F48C28 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482417B3293550570037B3F8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				48E90D39291767A000755D4B /* Main.storyboard */,
+				48E90D3F291767A100755D4B /* Assets.xcassets */,
+				482417B42935567E0037B3F8 /* Colors.xcassets */,
+				48E90D41291767A100755D4B /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		48A316362921A6C300F48C28 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +118,8 @@
 		48A316412921A93900F48C28 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				48E90D39291767A000755D4B /* Main.storyboard */,
-				48E90D3F291767A100755D4B /* Assets.xcassets */,
-				48E90D41291767A100755D4B /* LaunchScreen.storyboard */,
+				482417AE29354F770037B3F8 /* Gradient View.swift */,
+				482417B029354FA30037B3F8 /* Colors.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +157,7 @@
 				48A3163F2921A8EF00F48C28 /* Controller */,
 				48A316392921A84400F48C28 /* Model */,
 				48A316412921A93900F48C28 /* View */,
+				482417B3293550570037B3F8 /* Assets */,
 			);
 			path = NudgeMe;
 			sourceTree = "<group>";
@@ -204,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48E90D43291767A100755D4B /* LaunchScreen.storyboard in Resources */,
+				482417B52935567E0037B3F8 /* Colors.xcassets in Resources */,
 				48E90D40291767A100755D4B /* Assets.xcassets in Resources */,
 				48E90D3B291767A000755D4B /* Main.storyboard in Resources */,
 			);
@@ -217,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A3163E2921A8B200F48C28 /* APIResponse.swift in Sources */,
+				482417B129354FA30037B3F8 /* Colors.swift in Sources */,
 				4866BC6729332E290013FDEF /* NudgeMe.xcdatamodeld in Sources */,
 				48A316492921AE9F00F48C28 /* IntervalViewController.swift in Sources */,
 				48A3163C2921A87200F48C28 /* DaylightClient.swift in Sources */,
@@ -227,6 +246,7 @@
 				48A316382921A74100F48C28 /* DataController.swift in Sources */,
 				48E90D34291767A000755D4B /* AppDelegate.swift in Sources */,
 				48A3164C2921FE1800F48C28 /* Location.swift in Sources */,
+				482417AF29354F770037B3F8 /* Gradient View.swift in Sources */,
 				48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */,
 				48A2BE792922B7CD00DA82BC /* ErrorResponse.swift in Sources */,
 			);

@@ -14,23 +14,23 @@ class BodyViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: CoreData
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //var dataController: DataController!
-    var fetchedResultsController: NSFetchedResultsController<Message>!
-    
-    fileprivate func setupFetchResultsController() {
-        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-                
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Data Error: \(error.localizedDescription)")
-        }
-    }
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    //var dataController: DataController!
+//    var fetchedResultsController: NSFetchedResultsController<Message>!
+//
+//    fileprivate func setupFetchResultsController() {
+//        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        do {
+//            try fetchedResultsController.performFetch()
+//        } catch {
+//            fatalError("Data Error: \(error.localizedDescription)")
+//        }
+//    }
     
     // MARK: Outlets
     

@@ -13,25 +13,25 @@ class MindViewController: UIViewController, UITextFieldDelegate {
         
     // MARK: CoreData
     
-    var message: Message!
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //var dataController: DataController!
-    var fetchedResultsController: NSFetchedResultsController<Message>!
-
-    
-    fileprivate func setupFetchResultsController() {
-        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-                
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Data Error: \(error.localizedDescription)")
-        }
-    }
+//    var message: Message!
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    //var dataController: DataController!
+//    var fetchedResultsController: NSFetchedResultsController<Message>!
+//
+//
+//    fileprivate func setupFetchResultsController() {
+//        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        do {
+//            try fetchedResultsController.performFetch()
+//        } catch {
+//            fatalError("Data Error: \(error.localizedDescription)")
+//        }
+//    }
     
     // MARK: Outlets
     
@@ -45,9 +45,9 @@ class MindViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupFetchResultsController()
+        //setupFetchResultsController()
         //reminderOne.text = message.text
-        fetchMessages()
+        //fetchMessages()
         
     }
     
@@ -63,7 +63,7 @@ class MindViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        fetchedResultsController = nil
+        //fetchedResultsController = nil
     }
     
     
@@ -108,27 +108,27 @@ class MindViewController: UIViewController, UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
     
-    func addMessage(type: String) {
-        let message = Message(context: context)
-        message.name = "mind"
-        message.type = type
-        message.text = "Something to remember..."
-        try? context.save()
-    }
-    
-    func fetchMessages () {
-        let request = Message.fetchRequest() as NSFetchRequest<Message>
-        let predicate = NSPredicate(format: "name contains 'mind'")
-        request.predicate = predicate
-    }
+//    func addMessage(type: String) {
+//        let message = Message(context: context)
+//        message.name = "mind"
+//        message.type = type
+//        message.text = "Something to remember..."
+//        try? context.save()
+//    }
+//
+//    func fetchMessages () {
+//        let request = Message.fetchRequest() as NSFetchRequest<Message>
+//        let predicate = NSPredicate(format: "name contains 'mind'")
+//        request.predicate = predicate
+//    }
     
 }
 
 extension MindViewController {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        message.text = reminderOne.text //active textfield
-        try? context.save()
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        message.text = reminderOne.text //active textfield
+//        try? context.save()
+//    }
     
 }
  

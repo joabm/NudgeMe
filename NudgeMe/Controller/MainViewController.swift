@@ -10,26 +10,26 @@ import CoreData
 
 class MainViewController: UIViewController {
     
-    var category: Category!
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var fetchedResultsController: NSFetchedResultsController<Category>!
+//    var category: Category!
+//
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    var fetchedResultsController: NSFetchedResultsController<Category>!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        addCategoryObject(name: "mind")
-        addCategoryObject(name: "body")
-        addCategoryObject(name: "soul")
+//        addCategoryObject(name: "mind")
+//        addCategoryObject(name: "body")
+//        addCategoryObject(name: "soul")
         
     }
     
-    func addCategoryObject(name:String) {
-        let category = Category(context: context)
-        category.name = name
-        try? context.save()
-    }
+//    func addCategoryObject(name:String) {
+//        let category = Category(context: context)
+//        category.name = name
+//        try? context.save()
+//    }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "mind" {

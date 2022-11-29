@@ -13,6 +13,8 @@ import CoreData
 
 class IntervalViewContoller: UIViewController {
     
+    var randomReminders: [String] = []
+    
     // MARK: CoreData
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -44,6 +46,7 @@ class IntervalViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getLocationData()
+        createRandomReminderArray()
     }
     
     // MARK: Lifecycle
@@ -134,9 +137,77 @@ class IntervalViewContoller: UIViewController {
     
     // MARK: set up random
     
-    func createReminderArray() {
-        // get object for each category and create a reminder array with random values,
-        // one from each category.
+    func createRandomReminderArray() {
+        
+        // make an array for each userdefault category
+        // if a UserDefault value is empty then it's not added to the array
+        
+        let mindOne = UserDefaults.standard.string(forKey: "mindOne")
+        let mindTwo = UserDefaults.standard.string(forKey: "mindTwo")
+        let mindThree = UserDefaults.standard.string(forKey: "mindThree")
+        var mindMessages:[String] = []
+        
+        if mindOne != "" {
+            mindMessages.append(mindOne!)
+        }
+        if mindTwo != "" {
+            mindMessages.append(mindTwo!)
+        }
+        if mindThree != "" {
+            mindMessages.append(mindThree!)
+        }
+        debugPrint("mindMessages: \(mindMessages) + \(mindMessages.count)")
+        
+        let bodyOne = UserDefaults.standard.string(forKey: "bodyOne")
+        let bodyTwo = UserDefaults.standard.string(forKey: "bodyTwo")
+        let bodyThree = UserDefaults.standard.string(forKey: "bodyThree")
+        var bodyMessages:[String] = []
+        
+        if bodyOne != "" {
+            bodyMessages.append(bodyOne!)
+        }
+        if bodyTwo != "" {
+            bodyMessages.append(bodyTwo!)
+        }
+        if bodyThree != "" {
+            bodyMessages.append(bodyThree!)
+        }
+        debugPrint("bodyMessages: \(bodyMessages) + \(bodyMessages.count)")
+        
+        let soulOne = UserDefaults.standard.string(forKey: "soulOne")
+        let soulTwo = UserDefaults.standard.string(forKey: "soulTwo")
+        let soulThree = UserDefaults.standard.string(forKey: "soulThree")
+        var soulMessages:[String] = []
+        
+        if soulOne != "" {
+            soulMessages.append(soulOne!)
+        }
+        if soulTwo != "" {
+            soulMessages.append(soulTwo!)
+        }
+        if soulThree != "" {
+            soulMessages.append(soulThree!)
+        }
+        debugPrint("soulMessages: \(soulMessages) + \(soulMessages.count)")
+        
+        //create a reminder array with one random item from each category
+        //if a category array is nil, it's not added to the the randomReminder array
+        if mindMessages.count > 0 {
+            randomReminders.append(mindMessages.randomElement()!)
+        }
+        if bodyMessages.count > 0 {
+            randomReminders.append(bodyMessages.randomElement()!)
+        }
+        if soulMessages.count > 0 {
+            randomReminders.append(soulMessages.randomElement()!)
+        }
+        if mindMessages.count == 0 && bodyMessages.count == 0 && soulMessages.count == 0 {
+            let alertVC = UIAlertController(title: "Reminders are empty", message: "All reminder messages are empty.  You will not recieve reminders.  Please add messages.", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertVC, animated: true, completion: nil)
+        }
+        debugPrint("randomReminders: \(randomReminders) + \(randomReminders.count)")
+        
     }
     
     func getrandomTime() {

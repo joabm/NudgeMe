@@ -11,27 +11,7 @@ import CoreData
 
 
 class SoulViewController: UIViewController, UITextFieldDelegate {
-    
-    // MARK: CoreData
-    
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    //var dataController: DataController!
-//    var fetchedResultsController: NSFetchedResultsController<Message>!
-//
-//    fileprivate func setupFetchResultsController() {
-//        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("Data Error: \(error.localizedDescription)")
-//        }
-//    }
-    
+ 
     // MARK: Outlets
     
     @IBOutlet weak var soulTextView: UITextView!
@@ -43,7 +23,7 @@ class SoulViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //createMindArray()
+        applyTextFieldValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +34,12 @@ class SoulViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    func applyTextFieldValues(){
+        reminderOne.text = UserDefaults.standard.string(forKey: "soulOne")
+        reminderTwo.text = UserDefaults.standard.string(forKey: "soulTwo")
+        reminderThree.text = UserDefaults.standard.string(forKey: "soulThree")
     }
     
     // MARK: Keyboard controls
@@ -97,4 +83,13 @@ class SoulViewController: UIViewController, UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
     
+}
+
+extension SoulViewController {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UserDefaults.standard.set(reminderOne.text, forKey: "soulOne")
+        UserDefaults.standard.set(reminderTwo.text, forKey: "soulTwo")
+        UserDefaults.standard.set(reminderThree.text, forKey: "soulThree")
+    }
+
 }

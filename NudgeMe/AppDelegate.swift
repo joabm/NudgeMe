@@ -17,12 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //instantiate UNUserNotificationCenter and CLLocationManager frameworks API
     let center = UNUserNotificationCenter.current()
+    
+    //sets mapView if the app have never launched before
+    func checkIfFirstLaunch(){
+        if(UserDefaults.standard.bool(forKey: "hasLaunchedBefore")){
+            print("NudgeMe has launched before")
+        } else {
+            print("This is the first launch ever!")
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.set("Something to remember...", forKey: "mindOne")
+            UserDefaults.standard.set("Something to remember...", forKey: "mindTwo")
+            UserDefaults.standard.set("Something to remember...", forKey: "mindThree")
+            UserDefaults.standard.set("Something to do...", forKey: "bodyOne")
+            UserDefaults.standard.set("Something to do...", forKey: "bodyTwo")
+            UserDefaults.standard.set("Something to do...", forKey: "bodyThree")
+            UserDefaults.standard.set("Something to be...", forKey: "soulOne")
+            UserDefaults.standard.set("Something to be...", forKey: "soulTwo")
+            UserDefaults.standard.set("Something to be...", forKey: "soulThree")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
         }
+        checkIfFirstLaunch()
         
         return true
     }

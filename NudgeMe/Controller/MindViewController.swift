@@ -10,28 +10,6 @@ import UIKit
 import CoreData
 
 class MindViewController: UIViewController, UITextFieldDelegate {
-        
-    // MARK: CoreData
-    
-//    var message: Message!
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    //var dataController: DataController!
-//    var fetchedResultsController: NSFetchedResultsController<Message>!
-//
-//
-//    fileprivate func setupFetchResultsController() {
-//        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("Data Error: \(error.localizedDescription)")
-//        }
-//    }
     
     // MARK: Outlets
     
@@ -45,9 +23,7 @@ class MindViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupFetchResultsController()
-        //reminderOne.text = message.text
-        //fetchMessages()
+        applyTextFieldValues()
         
     }
     
@@ -61,11 +37,11 @@ class MindViewController: UIViewController, UITextFieldDelegate {
         unsubscribeFromKeyboardNotifications()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //fetchedResultsController = nil
+    func applyTextFieldValues(){
+        reminderOne.text = UserDefaults.standard.string(forKey: "mindOne")
+        reminderTwo.text = UserDefaults.standard.string(forKey: "mindTwo")
+        reminderThree.text = UserDefaults.standard.string(forKey: "mindThree")
     }
-    
     
     // MARK: Keyboard controls
     
@@ -107,28 +83,16 @@ class MindViewController: UIViewController, UITextFieldDelegate {
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
-    
-//    func addMessage(type: String) {
-//        let message = Message(context: context)
-//        message.name = "mind"
-//        message.type = type
-//        message.text = "Something to remember..."
-//        try? context.save()
-//    }
-//
-//    func fetchMessages () {
-//        let request = Message.fetchRequest() as NSFetchRequest<Message>
-//        let predicate = NSPredicate(format: "name contains 'mind'")
-//        request.predicate = predicate
-//    }
-    
+        
 }
 
+
 extension MindViewController {
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        message.text = reminderOne.text //active textfield
-//        try? context.save()
-//    }
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UserDefaults.standard.set(reminderOne.text, forKey: "mindOne")
+        UserDefaults.standard.set(reminderTwo.text, forKey: "mindTwo")
+        UserDefaults.standard.set(reminderThree.text, forKey: "mindThree")
+    }
+
 }
  

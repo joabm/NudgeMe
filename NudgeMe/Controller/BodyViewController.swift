@@ -12,26 +12,6 @@ import CoreData
 
 class BodyViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: CoreData
-    
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    //var dataController: DataController!
-//    var fetchedResultsController: NSFetchedResultsController<Message>!
-//
-//    fileprivate func setupFetchResultsController() {
-//        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("Data Error: \(error.localizedDescription)")
-//        }
-//    }
-    
     // MARK: Outlets
     
     @IBOutlet weak var bodyTextView: UITextView!
@@ -43,7 +23,7 @@ class BodyViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //createMindArray()
+        applyTextFieldValues()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +34,12 @@ class BodyViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    func applyTextFieldValues(){
+        reminderOne.text = UserDefaults.standard.string(forKey: "bodyOne")
+        reminderTwo.text = UserDefaults.standard.string(forKey: "bodyTwo")
+        reminderThree.text = UserDefaults.standard.string(forKey: "bodyThree")
     }
     
     // MARK: Keyboard controls
@@ -97,4 +83,13 @@ class BodyViewController: UIViewController, UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
     
+}
+
+extension BodyViewController {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UserDefaults.standard.set(reminderOne.text, forKey: "bodyOne")
+        UserDefaults.standard.set(reminderTwo.text, forKey: "bodyTwo")
+        UserDefaults.standard.set(reminderThree.text, forKey: "bodyThree")
+    }
+
 }

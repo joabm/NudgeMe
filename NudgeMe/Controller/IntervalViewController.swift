@@ -14,6 +14,7 @@ import CoreData
 class IntervalViewContoller: UIViewController {
     
     var randomReminders: [String] = []
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     // MARK: CoreData
     
@@ -43,13 +44,15 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var rootStackView: UIStackView!
     
+    
+    
+    // MARK: Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getLocationData()
         createRandomReminderArray()
     }
-    
-    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,10 +78,6 @@ class IntervalViewContoller: UIViewController {
     
     func getLocationData() {
         
-        let locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-        
         var currentLoc: CLLocation!
         var latitude: Double
         var longitude: Double
@@ -86,7 +85,7 @@ class IntervalViewContoller: UIViewController {
         
         //supporting iOS 14 and prior
         if #available(iOS 14, *) {
-            status = locationManager.authorizationStatus
+            status = appDelegate.locationManager.authorizationStatus
         } else {
             status = CLLocationManager.authorizationStatus()
         }
@@ -99,7 +98,7 @@ class IntervalViewContoller: UIViewController {
             
         case .authorizedAlways, .authorizedWhenInUse:
             setActivityIndicator(true)
-            currentLoc = locationManager.location
+            currentLoc = appDelegate.locationManager.location
             guard currentLoc != nil else {
                 daylightInfoText.textColor = UIColor.systemOrange
                 daylightInfoText.text = "Location information not available"
@@ -202,7 +201,7 @@ class IntervalViewContoller: UIViewController {
             randomReminders.append(soulMessages.randomElement()!)
         }
         if mindMessages.count == 0 && bodyMessages.count == 0 && soulMessages.count == 0 {
-            let alertVC = UIAlertController(title: "Reminders are empty", message: "All reminder messages are empty.  You will not recieve reminders.  Please add messages.", preferredStyle: .alert)
+            let alertVC = UIAlertController(title: "Reminders are empty.", message: "All reminder messages are empty.  You will not recieve reminders.  Please add messages.", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertVC, animated: true, completion: nil)
         }

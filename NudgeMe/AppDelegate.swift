@@ -8,15 +8,18 @@
 import UIKit
 import CoreData
 import UserNotifications
+import CoreLocation
 
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let dataController = DataController(modelName: "NudgeMe")
+    //let dataController = DataController(modelName: "NudgeMe")
+    
     
     //instantiate UNUserNotificationCenter and CLLocationManager frameworks API
     let center = UNUserNotificationCenter.current()
+    let locationManager = CLLocationManager()
     
     //sets mapView if the app have never launched before
     func checkIfFirstLaunch(){
@@ -40,10 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-        }
         checkIfFirstLaunch()
         
+        //request notifications authorization
+        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
+        }
+        
+        //request location authorization and other parameters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
+        locationManager.startMonitoringVisits()
+        locationManager.allowsBackgroundLocationUpdates = false
+
         return true
     }
 

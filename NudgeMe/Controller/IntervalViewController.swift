@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreLocationUI
 import CoreData
 
 
@@ -15,7 +16,7 @@ class IntervalViewContoller: UIViewController {
     
     var randomReminders: [String] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+        
     // MARK: CoreData
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -43,14 +44,19 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var attributionText: UITextView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var rootStackView: UIStackView!
+    @IBOutlet weak var reminderOne: UILabel!
+    @IBOutlet weak var reminderTwo: UILabel!
+    @IBOutlet weak var reminderThree: UILabel!
     
-    
+    @IBAction func toggleTodayButton(_ sender: Any) {
+        createRandomReminderArray()
+    }
     
     // MARK: Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getLocationData()
+        //getLocationData()
         createRandomReminderArray()
     }
     
@@ -62,6 +68,7 @@ class IntervalViewContoller: UIViewController {
         attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
         attributionText.attributedText = attributionString
         
+        getLocationData()
         
     }
     
@@ -191,14 +198,21 @@ class IntervalViewContoller: UIViewController {
         
         //create a reminder array with one random item from each category
         //if a category array is nil, it's not added to the the randomReminder array
+        let randomMind = mindMessages.randomElement()!
+        let randomBody = bodyMessages.randomElement()!
+        let randomSoul = soulMessages.randomElement()!
+        
         if mindMessages.count > 0 {
-            randomReminders.append(mindMessages.randomElement()!)
+            randomReminders.append(randomMind)
+            reminderOne.text = randomMind
         }
         if bodyMessages.count > 0 {
-            randomReminders.append(bodyMessages.randomElement()!)
+            randomReminders.append(randomBody)
+            reminderTwo.text = randomBody
         }
         if soulMessages.count > 0 {
-            randomReminders.append(soulMessages.randomElement()!)
+            randomReminders.append(randomSoul)
+            reminderThree.text = randomSoul
         }
         if mindMessages.count == 0 && bodyMessages.count == 0 && soulMessages.count == 0 {
             let alertVC = UIAlertController(title: "Reminders are empty.", message: "All reminder messages are empty.  You will not recieve reminders.  Please add messages.", preferredStyle: .alert)
@@ -211,6 +225,10 @@ class IntervalViewContoller: UIViewController {
     
     func getrandomTime() {
         //create times for reminders
+    }
+    
+    func scheduleReminders(){
+        //Schedule reminders
     }
     
     // MARK: Activity Indicator and Failure Message
@@ -229,3 +247,6 @@ class IntervalViewContoller: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
 }
+
+
+

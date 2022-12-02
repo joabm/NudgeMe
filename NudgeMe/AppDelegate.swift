@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //request location authorization and other parameters
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-        locationManager.startMonitoringVisits()
         locationManager.allowsBackgroundLocationUpdates = false
 
         return true

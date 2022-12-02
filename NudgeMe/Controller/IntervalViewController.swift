@@ -8,13 +8,16 @@
 import Foundation
 import UIKit
 import CoreLocation
-import CoreLocationUI
 import CoreData
 
 
 class IntervalViewContoller: UIViewController {
     
+    var mindMessages:[String] = []
+    var bodyMessages:[String] = []
+    var soulMessages:[String] = []
     var randomReminders: [String] = []
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
     // MARK: CoreData
@@ -49,7 +52,7 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var reminderThree: UILabel!
     
     @IBAction func toggleTodayButton(_ sender: Any) {
-        createRandomReminderArray()
+        getRandomReminders()
     }
     
     // MARK: Lifecycle
@@ -57,7 +60,8 @@ class IntervalViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //getLocationData()
-        createRandomReminderArray()
+        getCategoryArrays()
+        getRandomReminders()
     }
     
     override func viewDidLoad() {
@@ -143,7 +147,7 @@ class IntervalViewContoller: UIViewController {
     
     // MARK: set up random
     
-    func createRandomReminderArray() {
+    func getCategoryArrays() {
         
         // make an array for each userdefault category
         // if a UserDefault value is empty then it's not added to the array
@@ -151,7 +155,6 @@ class IntervalViewContoller: UIViewController {
         let mindOne = UserDefaults.standard.string(forKey: "mindOne")
         let mindTwo = UserDefaults.standard.string(forKey: "mindTwo")
         let mindThree = UserDefaults.standard.string(forKey: "mindThree")
-        var mindMessages:[String] = []
         
         if mindOne != "" {
             mindMessages.append(mindOne!)
@@ -167,7 +170,6 @@ class IntervalViewContoller: UIViewController {
         let bodyOne = UserDefaults.standard.string(forKey: "bodyOne")
         let bodyTwo = UserDefaults.standard.string(forKey: "bodyTwo")
         let bodyThree = UserDefaults.standard.string(forKey: "bodyThree")
-        var bodyMessages:[String] = []
         
         if bodyOne != "" {
             bodyMessages.append(bodyOne!)
@@ -183,7 +185,6 @@ class IntervalViewContoller: UIViewController {
         let soulOne = UserDefaults.standard.string(forKey: "soulOne")
         let soulTwo = UserDefaults.standard.string(forKey: "soulTwo")
         let soulThree = UserDefaults.standard.string(forKey: "soulThree")
-        var soulMessages:[String] = []
         
         if soulOne != "" {
             soulMessages.append(soulOne!)
@@ -196,6 +197,9 @@ class IntervalViewContoller: UIViewController {
         }
         debugPrint("soulMessages: \(soulMessages) + \(soulMessages.count)")
         
+    }
+    
+    func getRandomReminders() {
         //create a reminder array with one random item from each category
         //if a category array is nil, it's not added to the the randomReminder array
         let randomMind = mindMessages.randomElement()!

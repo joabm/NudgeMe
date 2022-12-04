@@ -9,10 +9,14 @@ import UIKit
 import CoreData
 
 class MainViewController: UIViewController {
-
+    
+    let notifications = Notifications()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notifications.requestNotificationAuthorization()
+        notifications.sendNotification()
+        
     }
 
 }

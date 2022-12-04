@@ -18,7 +18,7 @@ class IntervalViewContoller: UIViewController {
     var soulMessages:[String] = []
     var randomReminders: [String] = []
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let manager = LocationManager()
         
     // MARK: CoreData
     
@@ -66,6 +66,9 @@ class IntervalViewContoller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        manager.requestLocationAuthorization()
+        
         //creating an attributed string for API attribution
         let attributionString = NSMutableAttributedString(string: "Powered by sunrise-sunset.org")
         let url = URL(string: "https://sunrise-sunset.org")!
@@ -96,7 +99,7 @@ class IntervalViewContoller: UIViewController {
         
         //supporting iOS 14 and prior
         if #available(iOS 14, *) {
-            status = appDelegate.locationManager.authorizationStatus
+            status = manager.locationManager.authorizationStatus
         } else {
             status = CLLocationManager.authorizationStatus()
         }
@@ -109,7 +112,7 @@ class IntervalViewContoller: UIViewController {
             
         case .authorizedAlways, .authorizedWhenInUse:
             setActivityIndicator(true)
-            currentLoc = appDelegate.locationManager.location
+            currentLoc = manager.locationManager.location
             guard currentLoc != nil else {
                 daylightInfoText.textColor = UIColor.systemOrange
                 daylightInfoText.text = "Location information not available"

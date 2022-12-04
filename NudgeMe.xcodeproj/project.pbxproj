@@ -11,6 +11,8 @@
 		482417B129354FA30037B3F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482417B029354FA30037B3F8 /* Colors.swift */; };
 		482417B52935567E0037B3F8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482417B42935567E0037B3F8 /* Colors.xcassets */; };
 		4866BC6729332E290013FDEF /* NudgeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4866BC6529332E290013FDEF /* NudgeMe.xcdatamodeld */; };
+		488C1197293C245D00AB2916 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C1196293C245D00AB2916 /* Notifications.swift */; };
+		488C1199293C362C00AB2916 /* Location Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C1198293C362C00AB2916 /* Location Manager.swift */; };
 		48A2BE792922B7CD00DA82BC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */; };
 		48A316382921A74100F48C28 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316372921A74100F48C28 /* DataController.swift */; };
 		48A3163C2921A87200F48C28 /* DaylightClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3163B2921A87200F48C28 /* DaylightClient.swift */; };
@@ -33,6 +35,8 @@
 		482417B029354FA30037B3F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		482417B42935567E0037B3F8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4866BC6629332E290013FDEF /* NudgeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NudgeMe.xcdatamodel; sourceTree = "<group>"; };
+		488C1196293C245D00AB2916 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		488C1198293C362C00AB2916 /* Location Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location Manager.swift"; sourceTree = "<group>"; };
 		48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		48A316372921A74100F48C28 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		48A3163B2921A87200F48C28 /* DaylightClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightClient.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			children = (
 				48E90D33291767A000755D4B /* AppDelegate.swift */,
 				48E90D35291767A000755D4B /* SceneDelegate.swift */,
+				488C1196293C245D00AB2916 /* Notifications.swift */,
+				488C1198293C362C00AB2916 /* Location Manager.swift */,
 				48E90D44291767A100755D4B /* Info.plist */,
 				48A3163F2921A8EF00F48C28 /* Controller */,
 				48A316392921A84400F48C28 /* Model */,
@@ -242,11 +248,13 @@
 				48A316452921AE6A00F48C28 /* BodyViewController.swift in Sources */,
 				48A316472921AE8100F48C28 /* SoulViewController.swift in Sources */,
 				48A316432921AE5500F48C28 /* MindViewController.swift in Sources */,
+				488C1197293C245D00AB2916 /* Notifications.swift in Sources */,
 				48E90D38291767A000755D4B /* MainViewController.swift in Sources */,
 				48A316382921A74100F48C28 /* DataController.swift in Sources */,
 				48E90D34291767A000755D4B /* AppDelegate.swift in Sources */,
 				48A3164C2921FE1800F48C28 /* Location.swift in Sources */,
 				482417AF29354F770037B3F8 /* Gradient View.swift in Sources */,
+				488C1199293C362C00AB2916 /* Location Manager.swift in Sources */,
 				48E90D36291767A000755D4B /* SceneDelegate.swift in Sources */,
 				48A2BE792922B7CD00DA82BC /* ErrorResponse.swift in Sources */,
 			);

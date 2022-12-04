@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
             UserDefaults.standard.set("Today I create", forKey: "mindOne")
             UserDefaults.standard.set("Three things I am grateful for", forKey: "mindTwo")
-            UserDefaults.standard.set("'Expectations invite dissapointment. Expactancy invites Hope'", forKey: "mindThree")
+            UserDefaults.standard.set("Expectations invite disappointment. Expectancy invites Hope", forKey: "mindThree")
             UserDefaults.standard.set("Stand up and strech", forKey: "bodyOne")
             UserDefaults.standard.set("Do the Hokey Pokey", forKey: "bodyTwo")
             UserDefaults.standard.set("Gather Qi", forKey: "bodyThree")

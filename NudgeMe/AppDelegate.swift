@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     //instantiate UNUserNotificationCenter and CLLocationManager frameworks API
-    let center = UNUserNotificationCenter.current()
-    let locationManager = CLLocationManager()
+    let notifications = Notifications()
+    let manager = LocationManager()
     
     //sets mapView if the app have never launched before
     func checkIfFirstLaunch(){
@@ -28,15 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("This is the first launch ever!")
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-            UserDefaults.standard.set("Something to remember...", forKey: "mindOne")
-            UserDefaults.standard.set("Something to remember...", forKey: "mindTwo")
-            UserDefaults.standard.set("Something to remember...", forKey: "mindThree")
-            UserDefaults.standard.set("Something to do...", forKey: "bodyOne")
-            UserDefaults.standard.set("Something to do...", forKey: "bodyTwo")
-            UserDefaults.standard.set("Something to do...", forKey: "bodyThree")
-            UserDefaults.standard.set("Something to be...", forKey: "soulOne")
-            UserDefaults.standard.set("Something to be...", forKey: "soulTwo")
-            UserDefaults.standard.set("Something to be...", forKey: "soulThree")
+            UserDefaults.standard.set("Today I create", forKey: "mindOne")
+            UserDefaults.standard.set("Three things I am grateful for", forKey: "mindTwo")
+            UserDefaults.standard.set("'Expectations invite dissapointment. Expactancy invites Hope'", forKey: "mindThree")
+            UserDefaults.standard.set("Stand up and strech", forKey: "bodyOne")
+            UserDefaults.standard.set("Do the Hokey Pokey", forKey: "bodyTwo")
+            UserDefaults.standard.set("Gather Qi", forKey: "bodyThree")
+            UserDefaults.standard.set("Abandon the phone for a walk", forKey: "soulOne")
+            UserDefaults.standard.set("Whatever the situation, I help", forKey: "soulTwo")
+            UserDefaults.standard.set("Smile at each doorway", forKey: "soulThree")
         }
     }
 
@@ -45,14 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         checkIfFirstLaunch()
         
-        //request notifications authorization
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-        }
+        //notification delegate
+        notifications.center.delegate = notifications
         
-        //request location authorization and other parameters
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-        locationManager.allowsBackgroundLocationUpdates = false
+        //locationManager delegate
+        manager.locationManager.delegate = manager
 
         return true
     }

@@ -16,11 +16,9 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     func requestNotificationAuthorization() {
         
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            if granted {
-                print("User accepted Notifications")
-            } else {
-                print("User declined Nofitications")
-            }
+            if let error = error {
+                    print("Notification Error: ", error)
+                }
         }
     }
 

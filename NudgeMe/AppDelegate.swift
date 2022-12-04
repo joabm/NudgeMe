@@ -45,10 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         checkIfFirstLaunch()
         
-        //notification delegate
+        //framework API delegates
         notifications.center.delegate = notifications
-        
-        //locationManager delegate
         manager.locationManager.delegate = manager
 
         return true

@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set("Abandon the phone for a walk", forKey: "soulOne")
             UserDefaults.standard.set("Whatever the situation, I help", forKey: "soulTwo")
             UserDefaults.standard.set("Smile at each doorway", forKey: "soulThree")
+            UserDefaults.standard.set("09:00", forKey: "startTime")
+            UserDefaults.standard.set("18:00", forKey: "endTime")
         }
     }
 

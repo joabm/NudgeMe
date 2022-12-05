@@ -404,6 +404,9 @@
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YSD-1A-hNG">
                                                                 <rect key="frame" x="49.666666666666664" y="0.0" width="99.666666666666686" height="77.666666666666671"/>
+                                                                <connections>
+                                                                    <action selector="datePickerStart:" destination="s2j-5f-dyC" eventType="valueChanged" id="LL5-Yv-tuV"/>
+                                                                </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
                                                                 <rect key="frame" x="157.33333333333334" y="0.0" width="34" height="77.666666666666671"/>
@@ -413,6 +416,9 @@
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="iYm-sh-I6U">
                                                                 <rect key="frame" x="199.33333333333331" y="0.0" width="152.33333333333331" height="77.666666666666671"/>
+                                                                <connections>
+                                                                    <action selector="datePickerEnd:" destination="s2j-5f-dyC" eventType="touchUpInside" id="8rQ-P7-bCQ"/>
+                                                                </connections>
                                                             </datePicker>
                                                         </subviews>
                                                     </stackView>
@@ -470,6 +476,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="RUH-zc-5rQ" id="VDm-vp-HA7"/>
                         <outlet property="attributionText" destination="OMI-fL-hEh" id="RAQ-Xk-xaq"/>
+                        <outlet property="datePickerEnd" destination="iYm-sh-I6U" id="oDM-qX-j71"/>
+                        <outlet property="datePickerStart" destination="YSD-1A-hNG" id="QlW-7l-Ev8"/>
                         <outlet property="daylightInfoText" destination="Uab-WR-2I0" id="o6G-Dk-ySe"/>
                         <outlet property="reminderOne" destination="73b-uU-jC3" id="znY-CC-rm5"/>
                         <outlet property="reminderThree" destination="2Qk-Us-ler" id="ZhR-71-W2I"/>

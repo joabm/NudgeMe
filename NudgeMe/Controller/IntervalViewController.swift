@@ -50,6 +50,19 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var reminderOne: UILabel!
     @IBOutlet weak var reminderTwo: UILabel!
     @IBOutlet weak var reminderThree: UILabel!
+    @IBOutlet weak var datePickerStart: UIDatePicker!
+    @IBOutlet weak var datePickerEnd: UIDatePicker!
+    
+    
+    // MARK: Actions
+    
+    @IBAction func datePickerStart(_ sender: Any) {
+        
+    }
+    
+    @IBAction func datePickerEnd(_ sender: Any) {
+        
+    }
     
     @IBAction func toggleTodayButton(_ sender: Any) {
         randomReminders = []
@@ -63,19 +76,14 @@ class IntervalViewContoller: UIViewController {
         //getLocationData()
         getCategoryArrays()
         getRandomReminders()
+        initialTimePicker()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         manager.requestLocationAuthorization()
-        
-        //creating an attributed string for API attribution
-        let attributionString = NSMutableAttributedString(string: "Powered by sunrise-sunset.org")
-        let url = URL(string: "https://sunrise-sunset.org")!
-        attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
-        attributionText.attributedText = attributionString
-        
+        initialAttributionString()
         getLocationData()
         
     }
@@ -149,6 +157,30 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
+    // MARK: Initial values methods
+    
+    func initialAttributionString() {
+        
+        //creating an attributed string for API attribution
+        let attributionString = NSMutableAttributedString(string: "Powered by sunrise-sunset.org")
+        let url = URL(string: "https://sunrise-sunset.org")!
+        attributionString.setAttributes([.link: url], range: NSMakeRange(11, 18))
+        attributionText.attributedText = attributionString
+    }
+    
+    func initialTimePicker(){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "HH:mm"
+
+        let startTime = dateFormatter.date(from: UserDefaults.standard.string(forKey: "startTime")!)
+        let endTime = dateFormatter.date(from: UserDefaults.standard.string(forKey: "endTime")!)
+
+        datePickerStart.date = startTime!
+        datePickerEnd.date = endTime!
+    }
+    
+
     // MARK: set up random
     
     func getCategoryArrays() {

@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         notifications.requestNotificationAuthorization()
         notifications.sendNotification()
-        
     }
 
 }

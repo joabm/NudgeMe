@@ -55,20 +55,20 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         //If a response action is deired, it can be added here
-//        if response.notification.request.identifier == "Local Notification" {
-//            print("Handling notifications with the Local Notification Identifier")
-//        }
-//
-//        switch response.actionIdentifier {
-//        case UNNotificationDismissActionIdentifier:
-//            print("Dismiss Action")
-//        case UNNotificationDefaultActionIdentifier:
-//            print("Default")
-//        case "Delete":
-//            print("Delete")
-//        default:
-//            print("Unknown action")
-//        }
+        if response.notification.request.identifier == "Local Notification" {
+            print("Handling notifications with the Local Notification Identifier")
+        }
+
+        switch response.actionIdentifier {
+        case UNNotificationDismissActionIdentifier:
+            print("Dismiss Action")
+        case UNNotificationDefaultActionIdentifier:
+            print("Default")
+        case "Delete":
+            debugPrint("Notification Deleted")
+        default:
+            print("Unknown action")
+        }
         
         completionHandler()
     }

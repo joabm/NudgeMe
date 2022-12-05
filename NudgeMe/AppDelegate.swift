@@ -28,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("This is the first launch ever!")
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-            UserDefaults.standard.set("Today I create", forKey: "mindOne")
+            UserDefaults.standard.set("Today I create...", forKey: "mindOne")
             UserDefaults.standard.set("Three things I am grateful for", forKey: "mindTwo")
-            UserDefaults.standard.set("Expectations invite disappointment. Expectancy invites Hope", forKey: "mindThree")
-            UserDefaults.standard.set("Stand up and strech", forKey: "bodyOne")
+            UserDefaults.standard.set("Expectations invite disappointment. Expectancy invites hope.", forKey: "mindThree")
+            UserDefaults.standard.set("Stand up and stretch", forKey: "bodyOne")
             UserDefaults.standard.set("Do the Hokey Pokey", forKey: "bodyTwo")
             UserDefaults.standard.set("Gather Qi", forKey: "bodyThree")
             UserDefaults.standard.set("Abandon the phone for a walk", forKey: "soulOne")

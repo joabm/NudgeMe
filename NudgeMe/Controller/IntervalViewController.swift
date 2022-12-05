@@ -52,6 +52,7 @@ class IntervalViewContoller: UIViewController {
     @IBOutlet weak var reminderThree: UILabel!
     
     @IBAction func toggleTodayButton(_ sender: Any) {
+        randomReminders = []
         getRandomReminders()
     }
     

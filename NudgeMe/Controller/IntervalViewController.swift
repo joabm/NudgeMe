@@ -17,29 +17,15 @@ class IntervalViewContoller: UIViewController {
     var bodyMessages:[String] = []
     var soulMessages:[String] = []
     var randomReminders: [String] = []
+    var randomHours: [Int] = []
+    var randomMinutes: [Int] = []
     
     let manager = LocationManager()
+    let notifications = Notifications ()
         
     // MARK: CoreData
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //var dataController: DataController!
-    var fetchedResultsController: NSFetchedResultsController<Category>!
-    
-    
-    fileprivate func setupFetchResultsController() {
-        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "list")
-                
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Data Error: \(error.localizedDescription)")
-        }
-    }
     
     // MARK: Outlets
     
@@ -67,6 +53,8 @@ class IntervalViewContoller: UIViewController {
     @IBAction func toggleTodayButton(_ sender: Any) {
         randomReminders = []
         getRandomReminders()
+        getRandomTimes()
+        scheduleReminders()
     }
     
     // MARK: Lifecycle
@@ -263,12 +251,48 @@ class IntervalViewContoller: UIViewController {
         
     }
     
-    func getrandomTime() {
+    func getRandomTimes() {
         //create times for reminders
+        let startTime = 9
+        let endTime = 18
+        if startTime == endTime || endTime < startTime || startTime > endTime {
+            //error invalid
+        } else if endTime - startTime == 1 {
+            var t = 0
+            while (t < randomReminders.count) {
+                randomHours.append(startTime)
+                var mins = Int.random(in: 0 ..< 60)
+                randomMinutes.append(mins)
+                t += 1
+            }
+        } else {
+            var i = 0
+            while (i < randomReminders.count) {
+                // get random number between start and end Time & append random hours
+                var hrs = Int.random(in: startTime..<endTime)
+                randomHours.append(hrs)
+                
+                var mins = Int.random(in: 0 ..< 60)
+                randomMinutes.append(mins)
+                i += 1
+            }
+        }
+        //        randomHours = [22, 22, 22]
+        //        randomMinutes = [10, 11, 12]
     }
     
     func scheduleReminders(){
-        //Schedule reminders
+        var i = 0
+        while (i < randomReminders.count) {
+            var body = randomReminders[i]
+            var hour = randomHours[i]
+            var minute = randomMinutes[i]
+            notifications.sendNotification(body: body, hour: hour, minute: minute)
+            //capture for coredata history
+            //            message.text = body
+            //            message.creationDate = Date()
+            i += 1
+        }
     }
     
     // MARK: Activity Indicator and Failure Message

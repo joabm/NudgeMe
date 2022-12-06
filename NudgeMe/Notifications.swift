@@ -22,13 +22,13 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func sendNotification() {
+    func sendNotification(body: String, hour: Int, minute: Int) {
         
         let content = UNMutableNotificationContent()
         let userActions = "User Actions"
         
         content.title = "NudgeMe"
-        content.body = "Test body"
+        content.body = body
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = userActions
         

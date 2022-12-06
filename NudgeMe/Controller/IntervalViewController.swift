@@ -70,7 +70,6 @@ class IntervalViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.requestLocationAuthorization()
         initialAttributionString()
         getLocationData()
         

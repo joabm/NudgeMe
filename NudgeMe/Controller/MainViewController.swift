@@ -11,10 +11,14 @@ import CoreData
 class MainViewController: UIViewController {
     
     let notifications = Notifications()
+    let manager = LocationManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notifications.requestNotificationAuthorization()
+        manager.requestLocationAuthorization()
+
     }
 
 }

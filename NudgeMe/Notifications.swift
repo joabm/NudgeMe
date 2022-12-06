@@ -22,7 +22,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func sendNotification(body: String, hour: Int, minute: Int) {
+    func scheduleNotification(body: String, hour: Int, minute: Int) {
         
         let content = UNMutableNotificationContent()
         let userActions = "User Actions"
@@ -32,11 +32,12 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = userActions
         
-//        var dateComponents = DateComponents()
-//        dateComponents.hour
-//        dateComponents.minute
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "Local Notification", content: content, trigger: trigger)
                 
         center.add(request) { (error) in

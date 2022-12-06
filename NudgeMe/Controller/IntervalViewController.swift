@@ -287,7 +287,7 @@ class IntervalViewContoller: UIViewController {
             var body = randomReminders[i]
             var hour = randomHours[i]
             var minute = randomMinutes[i]
-            notifications.sendNotification(body: body, hour: hour, minute: minute)
+            notifications.scheduleNotification(body: body, hour: hour, minute: minute)
             //capture for coredata history
             //            message.text = body
             //            message.creationDate = Date()

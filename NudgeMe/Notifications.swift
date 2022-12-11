@@ -22,8 +22,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func scheduleNotification(body: String, hour: Int, minute: Int) {
-        
+    func scheduleNotification(body: String, hour: Int, minute: Int, id: String) {
+                
         let content = UNMutableNotificationContent()
         let userActions = "User Actions"
         
@@ -32,25 +32,26 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = userActions
         
-        var dateComponents = DateComponents()
-        dateComponents.hour = hour
-        dateComponents.minute = minute
+        var date = DateComponents()
+        date.hour = hour
+        date.minute = minute
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest(identifier: "Local Notification", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
                 
         center.add(request) { (error) in
             if let error = error {
                 debugPrint("Error \(error.localizedDescription)")
             }
         }
+        debugPrint("A notification has been scheduled for \(hour):\(minute)")
+        debugPrint(body)
         
         let deleteAction = UNNotificationAction(identifier: "Delete", title: "Delete", options: [.destructive])
         let category = UNNotificationCategory(identifier: userActions, actions: [deleteAction], intentIdentifiers: [], options: [])
 
         center.setNotificationCategories([category])
-        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

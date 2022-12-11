@@ -69,17 +69,31 @@
                                             <segue destination="MwR-0V-6f0" kind="show" id="bbk-6h-u2o"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrM-iM-EdG">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="stG-VD-C34">
                                         <rect key="frame" x="0.0" y="510.66666666666657" width="361" height="150.33333333333331"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Reminder Interval">
-                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGray6Color"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="s2j-5f-dyC" kind="show" id="vYF-D9-F4j"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrM-iM-EdG">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="71.333333333333329"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Set Up Reminders">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="s2j-5f-dyC" kind="show" id="vYF-D9-F4j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7f-OL-8NK">
+                                                <rect key="frame" x="0.0" y="79.333333333333371" width="361" height="71"/>
+                                                <color key="tintColor" red="0.79490671555201209" green="0.51080859094319409" blue="0.18938937865077332" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Reminder History">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -109,18 +123,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-eI-AhS" userLabel="Root Stack View">
                                 <rect key="frame" x="16" y="123" width="361" height="675"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVy-k0-1Ea">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVy-k0-1Ea">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="327.66666666666669"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.2893987996754967" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="MIND                                            ">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="22" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <string key="text">
+Thoughts to Cultivate…
+
+- Add short phrases below as a gentle prompt
+
+- Keep each phrase short
+
+- There can be just one or two prompts if you like
+
+...Expand your thoughts</string>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="vT9-E3-35l" id="YEs-XJ-sOL"/>
@@ -131,6 +148,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to remember..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-YN-cHB">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="95.666666666666671"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                 <connections>
@@ -139,6 +157,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to remember..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W3B-g5-fru">
                                                 <rect key="frame" x="0.0" y="115.66666666666669" width="361" height="96"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -147,6 +166,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to remember..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8se-Lb-R0d">
                                                 <rect key="frame" x="0.0" y="231.66666666666666" width="361" height="95.666666666666657"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -190,18 +210,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-Bg-Nhk" userLabel="Root Stack View">
                                 <rect key="frame" x="16" y="123" width="361" height="675"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G33-48-ltz">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G33-48-ltz">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="327.66666666666669"/>
                                         <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.0" alpha="0.29516763245033112" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="BODY                                            ">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="22" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <string key="text">
+Activity to Express…
+
+- Add short phrases below as a gentle prompt
+
+- Keep the phrases short
+
+- There can be just one or two prompts if you like
+
+...Be present to your body</string>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="s8G-r5-UyF" id="xzl-dZ-GPp"/>
@@ -212,6 +235,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to do..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="my2-me-VeX">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="95.666666666666671"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                 <connections>
@@ -220,6 +244,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to do..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kUw-HW-Zgh">
                                                 <rect key="frame" x="0.0" y="115.66666666666669" width="361" height="96"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -228,6 +253,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to do..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-Wb-Yzp">
                                                 <rect key="frame" x="0.0" y="231.66666666666666" width="361" height="95.666666666666657"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -271,18 +297,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8c8-u5-U2r" userLabel="Root Stack View">
                                 <rect key="frame" x="16" y="123" width="361" height="675"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-dG-nKa">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-dG-nKa">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="327.66666666666669"/>
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.29462437917748358" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="SOUL                                            ">
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" size="22" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <string key="text">
+Who to Become…
+
+- Add short phrases below as a gentle prompt
+
+- Keep each phrase short
+
+- There can be just one or two prompts if you like
+
+...Deepen your contribution</string>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="MwR-0V-6f0" id="wiz-c2-Vg8"/>
@@ -293,6 +322,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to be..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rDX-2T-y8V">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="95.666666666666671"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                                 <connections>
@@ -301,6 +331,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to be..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UJ4-n3-5yf">
                                                 <rect key="frame" x="0.0" y="115.66666666666669" width="361" height="96"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -309,6 +340,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Something to be..." textAlignment="center" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="awB-7j-nMS">
                                                 <rect key="frame" x="0.0" y="231.66666666666666" width="361" height="95.666666666666657"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -397,19 +429,19 @@
                                                         <rect key="frame" x="0.0" y="85.666666666666686" width="361" height="77.666666666666686"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-iQ-Xgf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="41" height="77.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YSD-1A-hNG">
-                                                                <rect key="frame" x="49.000000000000014" y="0.0" width="165.33333333333337" height="77.666666666666671"/>
+                                                                <rect key="frame" x="49.333333333333329" y="0.0" width="163.66666666666669" height="77.666666666666671"/>
                                                                 <connections>
-                                                                    <action selector="datePickerStart:" destination="s2j-5f-dyC" eventType="valueChanged" id="LL5-Yv-tuV"/>
+                                                                    <action selector="datePickerStart:" destination="s2j-5f-dyC" eventType="valueChanged" id="Mb6-2G-LsE"/>
                                                                 </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
-                                                                <rect key="frame" x="222.33333333333334" y="0.0" width="31.666666666666657" height="77.666666666666671"/>
+                                                                <rect key="frame" x="221" y="0.0" width="33" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -417,7 +449,7 @@
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="iYm-sh-I6U">
                                                                 <rect key="frame" x="262" y="0.0" width="99" height="77.666666666666671"/>
                                                                 <connections>
-                                                                    <action selector="datePickerEnd:" destination="s2j-5f-dyC" eventType="touchUpInside" id="8rQ-P7-bCQ"/>
+                                                                    <action selector="datePickerEnd:" destination="s2j-5f-dyC" eventType="valueChanged" id="5tE-Ee-KgR"/>
                                                                 </connections>
                                                             </datePicker>
                                                         </subviews>
@@ -466,10 +498,10 @@
                         <viewLayoutGuide key="safeArea" id="bug-Cw-Oee"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jO6-ob-cDO" firstAttribute="top" secondItem="bug-Cw-Oee" secondAttribute="top" id="4xI-Sn-83j"/>
+                            <constraint firstItem="bug-Cw-Oee" firstAttribute="top" secondItem="jO6-ob-cDO" secondAttribute="top" id="4xI-Sn-83j"/>
                             <constraint firstItem="jO6-ob-cDO" firstAttribute="leading" secondItem="bug-Cw-Oee" secondAttribute="leading" constant="16" id="IRi-MV-gyc"/>
                             <constraint firstItem="bug-Cw-Oee" firstAttribute="trailing" secondItem="jO6-ob-cDO" secondAttribute="trailing" constant="16" id="bE2-ix-vNo"/>
-                            <constraint firstItem="jO6-ob-cDO" firstAttribute="bottom" secondItem="bug-Cw-Oee" secondAttribute="bottom" id="iFg-Ta-dNu"/>
+                            <constraint firstItem="bug-Cw-Oee" firstAttribute="bottom" secondItem="jO6-ob-cDO" secondAttribute="bottom" id="iFg-Ta-dNu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YLh-QT-hGE"/>
@@ -493,6 +525,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

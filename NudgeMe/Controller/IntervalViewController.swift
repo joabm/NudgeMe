@@ -19,9 +19,17 @@ class IntervalViewContoller: UIViewController {
     var randomReminders: [String] = []
     var randomHours: [Int] = []
     var randomMinutes: [Int] = []
+    var identifiers: [String] = ["mind", "body", "soul"]
     
     let manager = LocationManager()
     let notifications = Notifications ()
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter
+    }()
+
         
     // MARK: CoreData
     
@@ -41,19 +49,21 @@ class IntervalViewContoller: UIViewController {
     
     
     // MARK: Actions
-    
     @IBAction func datePickerStart(_ sender: Any) {
-        
+        let pickerStart = dateFormatter.string(from: datePickerStart.date)
+        UserDefaults.standard.set(pickerStart, forKey: "startTime")
+        print(pickerStart)
     }
     
     @IBAction func datePickerEnd(_ sender: Any) {
-        
+        let pickerEnd = dateFormatter.string(from: datePickerEnd.date)
+        UserDefaults.standard.set(pickerEnd, forKey: "endTime")
+        print(pickerEnd)
     }
     
     @IBAction func toggleTodayButton(_ sender: Any) {
-        randomReminders = []
+        notifications.center.removeAllPendingNotificationRequests()
         getRandomReminders()
-        getRandomTimes()
         scheduleReminders()
     }
     
@@ -62,16 +72,19 @@ class IntervalViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //getLocationData()
-        getCategoryArrays()
-        getRandomReminders()
-        initialTimePicker()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         initialAttributionString()
+        //set saved TimePicker Value
+        datePickerStart.date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "startTime")!)!
+        datePickerEnd.date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "endTime")!)!
         getLocationData()
+        getCategoryArrays()
+        getRandomReminders()
+        //repeat24HrsTimer()
         
     }
     
@@ -155,20 +168,8 @@ class IntervalViewContoller: UIViewController {
         attributionText.attributedText = attributionString
     }
     
-    func initialTimePicker(){
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "HH:mm"
 
-        let startTime = dateFormatter.date(from: UserDefaults.standard.string(forKey: "startTime")!)
-        let endTime = dateFormatter.date(from: UserDefaults.standard.string(forKey: "endTime")!)
-
-        datePickerStart.date = startTime!
-        datePickerEnd.date = endTime!
-    }
-    
-
-    // MARK: set up random
+    // MARK: set up random arrays
     
     func getCategoryArrays() {
         
@@ -188,8 +189,8 @@ class IntervalViewContoller: UIViewController {
         if mindThree != "" {
             mindMessages.append(mindThree!)
         }
-        debugPrint("mindMessages: \(mindMessages) + \(mindMessages.count)")
-        
+//        debugPrint("mindMessages: \(mindMessages) + \(mindMessages.count)")
+
         let bodyOne = UserDefaults.standard.string(forKey: "bodyOne")
         let bodyTwo = UserDefaults.standard.string(forKey: "bodyTwo")
         let bodyThree = UserDefaults.standard.string(forKey: "bodyThree")
@@ -203,7 +204,7 @@ class IntervalViewContoller: UIViewController {
         if bodyThree != "" {
             bodyMessages.append(bodyThree!)
         }
-        debugPrint("bodyMessages: \(bodyMessages) + \(bodyMessages.count)")
+//        debugPrint("bodyMessages: \(bodyMessages) + \(bodyMessages.count)")
         
         let soulOne = UserDefaults.standard.string(forKey: "soulOne")
         let soulTwo = UserDefaults.standard.string(forKey: "soulTwo")
@@ -218,11 +219,12 @@ class IntervalViewContoller: UIViewController {
         if soulThree != "" {
             soulMessages.append(soulThree!)
         }
-        debugPrint("soulMessages: \(soulMessages) + \(soulMessages.count)")
+//        debugPrint("soulMessages: \(soulMessages) + \(soulMessages.count)")
         
     }
     
     func getRandomReminders() {
+        randomReminders = []
         //create a reminder array with one random item from each category
         //if a category array is nil, it's not added to the the randomReminder array
         let randomMind = mindMessages.randomElement()!
@@ -251,16 +253,32 @@ class IntervalViewContoller: UIViewController {
     }
     
     func getRandomTimes() {
+        randomHours = []
+        randomMinutes = []
+        
+        //convert default time string to integer arrayy
+        let startValue = UserDefaults.standard.string(forKey: "startTime")
+        let endValue = UserDefaults.standard.string(forKey: "endTime")
+        
+        let start = startValue?.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
+        let end  = endValue?.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
+        
+        debugPrint("Start array is \(start![0]) and \(start![1])")
+        debugPrint("Start array is \(end![0]) and \(end![1])")
+        
         //create times for reminders
-        let startTime = 9
-        let endTime = 18
-        if startTime == endTime || endTime < startTime || startTime > endTime {
+        let startHour = start![0]
+        let startMin = start![1]
+        let endHour = end![0]
+        let endMin = end![1]
+        
+        if startHour == endHour || endHour < startHour || startHour > endHour {
             //error invalid
-        } else if endTime - startTime == 1 {
+        } else if endHour - startHour <= 1 {
             var t = 0
             while (t < randomReminders.count) {
-                randomHours.append(startTime)
-                var mins = Int.random(in: 0 ..< 60)
+                randomHours.append(startHour)
+                let mins = Int.random(in: 10 ..< 60)
                 randomMinutes.append(mins)
                 t += 1
             }
@@ -268,25 +286,26 @@ class IntervalViewContoller: UIViewController {
             var i = 0
             while (i < randomReminders.count) {
                 // get random number between start and end Time & append random hours
-                var hrs = Int.random(in: startTime..<endTime)
+                let hrs = Int.random(in: startHour..<endHour)
                 randomHours.append(hrs)
                 
-                var mins = Int.random(in: 0 ..< 60)
+                let mins = Int.random(in: 10 ..< 60)
                 randomMinutes.append(mins)
                 i += 1
             }
         }
-        //        randomHours = [22, 22, 22]
-        //        randomMinutes = [10, 11, 12]
     }
     
+    
     func scheduleReminders(){
+        getRandomTimes()
         var i = 0
         while (i < randomReminders.count) {
-            var body = randomReminders[i]
-            var hour = randomHours[i]
-            var minute = randomMinutes[i]
-            notifications.scheduleNotification(body: body, hour: hour, minute: minute)
+            let body = randomReminders[i]
+            let hour = randomHours[i]
+            let minute = randomMinutes[i]
+            let identifier = identifiers[i]
+            notifications.scheduleNotification(body: body, hour: hour, minute: minute, id: identifier)
             //capture for coredata history
             //            message.text = body
             //            message.creationDate = Date()
@@ -294,6 +313,19 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
+    func repeat24HrsTimer() {
+        let date = Date(timeIntervalSinceReferenceDate: 60)
+        let timer = Timer(fireAt: date, interval: 7200, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: .common)
+    }
+    
+    @objc func startTimer(){
+        notifications.center.removeAllPendingNotificationRequests()
+        //getCategoryArrays()
+        getRandomReminders()
+        scheduleReminders()
+    }
+
     // MARK: Activity Indicator and Failure Message
     
     func setActivityIndicator(_ isFinding: Bool) {

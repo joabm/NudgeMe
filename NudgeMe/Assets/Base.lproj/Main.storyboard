@@ -118,13 +118,13 @@
         <!--Reminder History-->
         <scene sceneID="tYC-af-4Em">
             <objects>
-                <tableViewController id="3A1-a7-K2n" sceneMemberID="viewController">
+                <tableViewController id="3A1-a7-K2n" customClass="HistoryTableViewController" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qz7-g8-sMU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" textLabel="oCb-BT-Xd2" detailTextLabel="AVN-Hx-wi3" style="IBUITableViewCellStyleValue1" id="YDq-CY-m1J">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReminderCell" textLabel="oCb-BT-Xd2" detailTextLabel="AVN-Hx-wi3" style="IBUITableViewCellStyleValue1" id="YDq-CY-m1J" customClass="HistoryTableViewCell" customModule="NudgeMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YDq-CY-m1J" id="xa5-X0-j6s">
@@ -147,6 +147,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="createdDateLabel" destination="AVN-Hx-wi3" id="sru-8B-cNK"/>
+                                    <outlet property="messageLabel" destination="oCb-BT-Xd2" id="oi9-jk-Y7C"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -154,7 +158,9 @@
                             <outlet property="delegate" destination="3A1-a7-K2n" id="CmH-OR-WFp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reminder History" id="QVs-kN-52C"/>
+                    <navigationItem key="navigationItem" title="Reminder History" id="QVs-kN-52C">
+                        <barButtonItem key="rightBarButtonItem" title="Clear History" id="knL-uP-aX8"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mh0-60-czJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -425,7 +431,7 @@ Who to Become…
         <scene sceneID="CYl-PR-zS5">
             <objects>
                 <viewController id="s2j-5f-dyC" customClass="IntervalViewContoller" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -477,25 +483,25 @@ Who to Become…
                                                         <rect key="frame" x="0.0" y="85.666666666666686" width="361" height="77.666666666666686"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-iQ-Xgf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="77.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YSD-1A-hNG">
-                                                                <rect key="frame" x="49.333333333333329" y="0.0" width="163.66666666666669" height="77.666666666666671"/>
+                                                                <rect key="frame" x="49.666666666666686" y="0.0" width="163" height="77.666666666666671"/>
                                                                 <connections>
                                                                     <action selector="datePickerStart:" destination="s2j-5f-dyC" eventType="valueChanged" id="Mb6-2G-LsE"/>
                                                                 </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
-                                                                <rect key="frame" x="221" y="0.0" width="33" height="77.666666666666671"/>
+                                                                <rect key="frame" x="220.66666666666666" y="0.0" width="33.666666666666657" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="iYm-sh-I6U">
-                                                                <rect key="frame" x="262" y="0.0" width="99" height="77.666666666666671"/>
+                                                                <rect key="frame" x="262.33333333333331" y="0.0" width="98.666666666666686" height="77.666666666666671"/>
                                                                 <connections>
                                                                     <action selector="datePickerEnd:" destination="s2j-5f-dyC" eventType="valueChanged" id="5tE-Ee-KgR"/>
                                                                 </connections>

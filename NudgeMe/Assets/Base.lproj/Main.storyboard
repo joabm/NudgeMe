@@ -159,7 +159,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reminder History" id="QVs-kN-52C">
-                        <barButtonItem key="rightBarButtonItem" title="Clear History" id="knL-uP-aX8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear History" id="knL-uP-aX8">
+                            <connections>
+                                <action selector="clearHistoryButton:" destination="3A1-a7-K2n" id="1Tu-q5-L78"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mh0-60-czJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

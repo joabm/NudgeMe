@@ -435,7 +435,7 @@ Who to Become…
         <scene sceneID="CYl-PR-zS5">
             <objects>
                 <viewController id="s2j-5f-dyC" customClass="IntervalViewContoller" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -493,13 +493,13 @@ Who to Become…
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="YSD-1A-hNG">
-                                                                <rect key="frame" x="49.666666666666686" y="0.0" width="163" height="77.666666666666671"/>
+                                                                <rect key="frame" x="49.666666666666671" y="0.0" width="162.66666666666663" height="77.666666666666671"/>
                                                                 <connections>
                                                                     <action selector="datePickerStart:" destination="s2j-5f-dyC" eventType="valueChanged" id="Mb6-2G-LsE"/>
                                                                 </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
-                                                                <rect key="frame" x="220.66666666666666" y="0.0" width="33.666666666666657" height="77.666666666666671"/>
+                                                                <rect key="frame" x="220.33333333333334" y="0.0" width="34" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -520,14 +520,27 @@ Who to Become…
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-QF-aVj" userLabel="Reminder Stack View">
                                         <rect key="frame" x="0.0" y="366.66666666666663" width="361" height="346.66666666666663"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-au-XTw">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-b6-HI1">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="71.666666666666671"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Toggle Today's Reminders" buttonSize="medium"/>
-                                                <connections>
-                                                    <action selector="toggleTodayButton:" destination="s2j-5f-dyC" eventType="touchUpInside" id="RFY-GQ-Oye"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-au-XTw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="71.666666666666671"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Toggle Reminders" buttonSize="medium"/>
+                                                        <connections>
+                                                            <action selector="toggleTodayButton:" destination="s2j-5f-dyC" eventType="touchUpInside" id="RFY-GQ-Oye"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5e-I5-rRb">
+                                                        <rect key="frame" x="184.66666666666663" y="0.0" width="176.33333333333337" height="71.666666666666671"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Send Notifications"/>
+                                                        <connections>
+                                                            <action selector="sendNotificationsButton:" destination="s2j-5f-dyC" eventType="touchUpInside" id="HmO-eD-noi"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mind reminders are empty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="73b-uU-jC3">
                                                 <rect key="frame" x="0.0" y="91.666666666666629" width="361" height="71.666666666666686"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 
 
-class IntervalViewContoller: UIViewController {
+class IntervalViewContoller: UIViewController, NSFetchedResultsControllerDelegate {
     
     var mindMessages:[String] = []
     var bodyMessages:[String] = []
@@ -34,6 +34,26 @@ class IntervalViewContoller: UIViewController {
     // MARK: CoreData
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var message: Message!
+    var fetchedResultsController:NSFetchedResultsController<Message>!
+    
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
+        let predicate = NSPredicate(format: "message == %@", message)
+        fetchRequest.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
+    
     
     // MARK: Outlets
     
@@ -64,6 +84,9 @@ class IntervalViewContoller: UIViewController {
     @IBAction func toggleTodayButton(_ sender: Any) {
         notifications.center.removeAllPendingNotificationRequests()
         getRandomReminders()
+    }
+    
+    @IBAction func sendNotificationsButton(_ sender: Any) {
         scheduleReminders()
     }
     
@@ -84,6 +107,7 @@ class IntervalViewContoller: UIViewController {
         getLocationData()
         getCategoryArrays()
         getRandomReminders()
+        //setupFetchedResultsController()
         //repeat24HrsTimer()
         
     }
@@ -306,9 +330,13 @@ class IntervalViewContoller: UIViewController {
             let minute = randomMinutes[i]
             let identifier = identifiers[i]
             notifications.scheduleNotification(body: body, hour: hour, minute: minute, id: identifier)
+            
             //capture for coredata history
-            //            message.text = body
-            //            message.creationDate = Date()
+            let message = Message(context: context)
+            message.text = body
+            message.creationDate = Date()
+            try? context.save()
+            
             i += 1
         }
     }

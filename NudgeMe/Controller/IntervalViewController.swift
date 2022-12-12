@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 
 
-class IntervalViewContoller: UIViewController, NSFetchedResultsControllerDelegate {
+class IntervalViewContoller: UIViewController {
     
     var mindMessages:[String] = []
     var bodyMessages:[String] = []
@@ -39,13 +39,13 @@ class IntervalViewContoller: UIViewController, NSFetchedResultsControllerDelegat
     
     fileprivate func setupFetchedResultsController() {
         let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
-        let predicate = NSPredicate(format: "message == %@", message)
-        fetchRequest.predicate = predicate
+//        let predicate = NSPredicate(format: "message == %@", message)
+//        fetchRequest.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
+//        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
@@ -101,13 +101,15 @@ class IntervalViewContoller: UIViewController, NSFetchedResultsControllerDelegat
         super.viewDidLoad()
                 
         initialAttributionString()
+        
         //set saved TimePicker Value
         datePickerStart.date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "startTime")!)!
         datePickerEnd.date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "endTime")!)!
+        
         getLocationData()
         getCategoryArrays()
         getRandomReminders()
-        //setupFetchedResultsController()
+        setupFetchedResultsController()
         //repeat24HrsTimer()
         
     }

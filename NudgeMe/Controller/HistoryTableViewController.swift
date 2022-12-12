@@ -16,15 +16,13 @@ class HistoryTableViewCell: UITableViewCell {
     
 }
 
-class HistoryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class HistoryTableViewController: UITableViewController {
     
     @IBAction func clearHistoryButton(_ sender: Any) {
         deleteStoreReminders()
-        //tableView.reloadData()
     }
     
-    
-    /// A date formatter for date text in note cells
+    /// A date formatter for date text in reminder  cells
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
@@ -32,6 +30,7 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
     }()
     
     // MARK: CoreData
+    
     //access the reminder array in CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var message: Message!
@@ -39,13 +38,10 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
     
     fileprivate func setupFetchedResultsController() {
         let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
-        let predicate = NSPredicate(format: "message == %@", message)
-        fetchRequest.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
@@ -58,14 +54,23 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
     func deleteStoreReminders() {
         for message in fetchedResultsController.fetchedObjects! {
             context.delete(message)
+            try? context.save()
+            setupFetchedResultsController()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        try? context.save()
     }
     
     func deleteMessage(at indexPath: IndexPath) {
         let messageToDelete = fetchedResultsController.object(at: indexPath)
         context.delete(messageToDelete)
         try? context.save()
+        setupFetchedResultsController()
+        DispatchQueue.main.async {
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: Lifecycle
@@ -95,7 +100,7 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //fetch reminder count from core data
-        return fetchedResultsController.sections?.count ?? 1
+        return fetchedResultsController.fetchedObjects?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +122,6 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             deleteMessage(at: indexPath)
-            //tableView.reloadData()
         }
     }
     

@@ -91,6 +91,9 @@
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="3A1-a7-K2n" kind="show" id="x7m-3c-h91"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -111,6 +114,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9H-1J-P0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="206.87022900763358" y="-52.112676056338032"/>
+        </scene>
+        <!--Reminder History-->
+        <scene sceneID="tYC-af-4Em">
+            <objects>
+                <tableViewController id="3A1-a7-K2n" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qz7-g8-sMU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" textLabel="oCb-BT-Xd2" detailTextLabel="AVN-Hx-wi3" style="IBUITableViewCellStyleValue1" id="YDq-CY-m1J">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YDq-CY-m1J" id="xa5-X0-j6s">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oCb-BT-Xd2">
+                                            <rect key="frame" x="19.999999999999996" y="15" width="50.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="CreatedDate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AVN-Hx-wi3">
+                                            <rect key="frame" x="301.33333333333331" y="15" width="71.666666666666671" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3A1-a7-K2n" id="x8m-zj-1fR"/>
+                            <outlet property="delegate" destination="3A1-a7-K2n" id="CmH-OR-WFp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reminder History" id="QVs-kN-52C"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mh0-60-czJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211" y="-711"/>
         </scene>
         <!--Mind View Controller-->
         <scene sceneID="4mx-gw-9j8">

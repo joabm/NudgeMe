@@ -1,27 +1,51 @@
 # NudgeMe
 
 ## Table of Contents
+  - Introduction
   - Description
   - How to Use
   - Depencendies
   - Resources
+
+## Introduction
+  - Have you ever set up reminders for things that repeat day after day, like a mantra you want to keep in your mind or 
+    a habit you are trying to form, only to find that eventually your scheduled reminders become predictable and lose the
+    spark you intended for them to have?  NudgeMe is a perfect solution to keep those reminders alive.  This app delivers
+    notifications to you at random times throughout the day and with content that is randomly selected from a list of
+    reminders that you provide.
   
- ## Description
-  - This app allows users to browse photos of possible vacation locations.  
-  - The app uses the Flickr API for a photosource.
-  - The user can drop a pin on a map and then select the pin to browse photos of that location.
-  - The user experience includes persistence of pins and zoom level on the map as well as photos that have been downloaded.
-  - The app uses Apple's NSUserDefaults and CoreData to presist the data.
+## Description
+  - NudgeMe provides users with notifications without a regular schedule.
+  - The user provides minimal input to customize thier experience. 
+  - The app then delivers notifications to the user at random times throughtout the day.
+  - The content of the notification is a message selected randomly from a list the user provides.
+  - Users will be able to select the time of day in which they want to receive the reminders.
+  - A history of reminders that have been scheduled is provided where the user can see which reminders they are receiving.
+
+## How to use the app on iPhone
+  - Install the app on your phone and launch the app
+  - The app requires permission to deliver notifications to you.
+  - The app also asks for permission for your general location.  This app does not track your exact location.
+  - From the main view, tap a category for the reminders and add your own reminder messages to each category.   Feel free
+    to use the default reminders.
+  - Next select the "Set up Reminders" button.  From this view you will be able to select a start and end time
+    for when you want to receive the notifications.
+  - Next toggle the reminders to select a different set of reminders for the day.
+  - Send the notifications.  NudgeMe will schedule the notification at random times within the interval of 
+    time you selected.
+  - Finally put the app in the background (required for this app) and go about your day. You will receive the reminder
+    notification.  Your reminders will remain fresh as they pop onto notifications throughout the day.
   
- ## How to Use
+## How to build or modify the app in XCode
   - load the app into Xcode to begin working with the app.
   - Launch the simulator to the the device of your choice
 
+
 ## Dependencies 
   - This code was written with Swift 5 in Xcode 14.0.1
-  - This app was written for use with iPhone
+  - This app was written for use with iPhone.
   
-## Resources
+## Resources for ideas to build an app like NudgeMe
   - Thanks to Lizzie Shipton for a great article on implementing the CoreLocation framework for iOS.  https://www.abstractapi.com/guides/swift-geolocation
   - The many contributions at https://stackoverflow.com and the Udacity technical forums were helpful in the making of this app
 

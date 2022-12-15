@@ -437,7 +437,7 @@ Who to Become…
         <scene sceneID="CYl-PR-zS5">
             <objects>
                 <viewController id="s2j-5f-dyC" customClass="IntervalViewContoller" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -501,13 +501,13 @@ Who to Become…
                                                                 </connections>
                                                             </datePicker>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmF-RN-eh2">
-                                                                <rect key="frame" x="220.33333333333334" y="0.0" width="34" height="77.666666666666671"/>
+                                                                <rect key="frame" x="220.33333333333334" y="0.0" width="33" height="77.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="iYm-sh-I6U">
-                                                                <rect key="frame" x="262.33333333333331" y="0.0" width="98.666666666666686" height="77.666666666666671"/>
+                                                                <rect key="frame" x="261.33333333333331" y="0.0" width="99.666666666666686" height="77.666666666666671"/>
                                                                 <connections>
                                                                     <action selector="datePickerEnd:" destination="s2j-5f-dyC" eventType="valueChanged" id="5tE-Ee-KgR"/>
                                                                 </connections>
@@ -597,7 +597,7 @@ Who to Become…
     </scenes>
     <resources>
         <namedColor name="Blue Background">
-            <color red="0.82906210422515869" green="0.89487737417221069" blue="0.95345562696456909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.82899999618530273" green="0.89499998092651367" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

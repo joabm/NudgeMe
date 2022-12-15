@@ -39,13 +39,10 @@ class IntervalViewContoller: UIViewController {
     
     fileprivate func setupFetchedResultsController() {
         let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
-//        let predicate = NSPredicate(format: "message == %@", message)
-//        fetchRequest.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
@@ -110,9 +107,7 @@ class IntervalViewContoller: UIViewController {
         getLocationData()
         getCategoryArrays()
         getRandomReminders()
-        setupFetchedResultsController()
-        //repeat24HrsTimer()
-        
+        //setupFetchedResultsController()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -184,7 +179,7 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
-    // MARK: Initial values methods
+    // MARK: String for API Attribution
     
     func initialAttributionString() {
         
@@ -286,7 +281,7 @@ class IntervalViewContoller: UIViewController {
         randomHours = []
         randomMinutes = []
         
-        //convert stored default time string to integer arrayy
+        //convert stored default time string to integer array
         let startValue = UserDefaults.standard.string(forKey: "startTime")
         let endValue = UserDefaults.standard.string(forKey: "endTime")
         
@@ -299,17 +294,19 @@ class IntervalViewContoller: UIViewController {
         let endHour = Int(end?[0] ?? "") ?? 0
         let endMin = Int(end?[1] ?? "") ?? 0
         
+        let check = endHour - startHour
+        print("Check result: \(check)")
+        
         // apply time interval limitation conditions
-        if endHour == startHour || endHour < startHour || endHour - startHour <= 2 {
-            let testNumber = startHour + endHour
-            debugPrint("test is : \(testNumber)")
-            showAlert(title: "Time Interval", message: "The time interval is not valid.  A time interval of a minimum of three hours is recommended.")
+        if ((endHour - startHour == 0) || (endHour < startHour) || (endHour - startHour <= 2)) {
+            showAlert(title: "Time Interval", message: "The time interval is not accepted.  A time interval of a minimum of three hours is recommended.")
         }
         
         //select random times if limitations are satisfied
         var i = 0
         while (i < randomReminders.count) {
-            // get random number between start and end Time & append random hours
+            
+            // get random number between start and end Time & append random hours array
             if startMin == 0 && endMin == 0 { //if both start and end minutes are 0
                 let hrs = Int.random(in: startHour..<endHour )
                 randomHours.append(hrs)
@@ -361,7 +358,6 @@ class IntervalViewContoller: UIViewController {
     
     
     func scheduleReminders(){
-        //getRandomTimes()
         var i = 0
         while (i < randomReminders.count) {
             print("random hours count: \(randomHours.count)")
@@ -380,19 +376,6 @@ class IntervalViewContoller: UIViewController {
             i += 1
         }
     }
-    
-//    func repeat24HrsTimer() {
-//        let date = Date(timeIntervalSinceReferenceDate: 60)
-//        let timer = Timer(fireAt: date, interval: 7200, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
-//        RunLoop.main.add(timer, forMode: .common)
-//    }
-//
-//    @objc func startTimer(){
-//        notifications.center.removeAllPendingNotificationRequests()
-//        getRandomReminders()
-//        getRandomTimes()
-//        scheduleReminders()
-//    }
 
     // MARK: Activity Indicator and Failure Message
     

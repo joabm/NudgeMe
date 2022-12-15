@@ -87,6 +87,7 @@ class IntervalViewContoller: UIViewController {
     }
     
     @IBAction func sendNotificationsButton(_ sender: Any) {
+        getRandomTimes()
         scheduleReminders()
     }
     
@@ -178,7 +179,7 @@ class IntervalViewContoller: UIViewController {
             }
             else {
                 self.setActivityIndicator(false)
-                self.showFailure(message: "\(error?.localizedDescription ?? "error")")
+                self.showAlert(title: "Daylight Data", message: "\(error?.localizedDescription ?? "error")")
             }
         }
     }
@@ -207,13 +208,13 @@ class IntervalViewContoller: UIViewController {
         let mindThree = UserDefaults.standard.string(forKey: "mindThree")
         
         if mindOne != "" {
-            mindMessages.append(mindOne!)
+            mindMessages.append(mindOne ?? "")
         }
         if mindTwo != "" {
-            mindMessages.append(mindTwo!)
+            mindMessages.append(mindTwo ?? "")
         }
         if mindThree != "" {
-            mindMessages.append(mindThree!)
+            mindMessages.append(mindThree ?? "")
         }
 //        debugPrint("mindMessages: \(mindMessages) + \(mindMessages.count)")
 
@@ -222,13 +223,13 @@ class IntervalViewContoller: UIViewController {
         let bodyThree = UserDefaults.standard.string(forKey: "bodyThree")
         
         if bodyOne != "" {
-            bodyMessages.append(bodyOne!)
+            bodyMessages.append(bodyOne ?? "")
         }
         if bodyTwo != "" {
-            bodyMessages.append(bodyTwo!)
+            bodyMessages.append(bodyTwo ?? "")
         }
         if bodyThree != "" {
-            bodyMessages.append(bodyThree!)
+            bodyMessages.append(bodyThree ?? "")
         }
 //        debugPrint("bodyMessages: \(bodyMessages) + \(bodyMessages.count)")
         
@@ -237,13 +238,13 @@ class IntervalViewContoller: UIViewController {
         let soulThree = UserDefaults.standard.string(forKey: "soulThree")
         
         if soulOne != "" {
-            soulMessages.append(soulOne!)
+            soulMessages.append(soulOne ?? "")
         }
         if soulTwo != "" {
-            soulMessages.append(soulTwo!)
+            soulMessages.append(soulTwo ?? "")
         }
         if soulThree != "" {
-            soulMessages.append(soulThree!)
+            soulMessages.append(soulThree ?? "")
         }
 //        debugPrint("soulMessages: \(soulMessages) + \(soulMessages.count)")
         
@@ -253,80 +254,117 @@ class IntervalViewContoller: UIViewController {
         randomReminders = []
         //create a reminder array with one random item from each category
         //if a category array is nil, it's not added to the the randomReminder array
-        let randomMind = mindMessages.randomElement()!
-        let randomBody = bodyMessages.randomElement()!
-        let randomSoul = soulMessages.randomElement()!
+        
+        if mindMessages.count == 0 && bodyMessages.count == 0 && soulMessages.count == 0 {
+            showAlert(title: "Reminders are empty.", message: "All reminder categories are empty.  You will not recieve reminders.  Please add a message to at least one category: MIND, BODY, SOUL.")
+        }
+        
+        let randomMind = mindMessages.randomElement()
+        let randomBody = bodyMessages.randomElement()
+        let randomSoul = soulMessages.randomElement()
         
         if mindMessages.count > 0 {
-            randomReminders.append(randomMind)
+            randomReminders.append(randomMind ?? "")
             reminderOne.text = randomMind
         }
         if bodyMessages.count > 0 {
-            randomReminders.append(randomBody)
+            randomReminders.append(randomBody ?? "")
             reminderTwo.text = randomBody
         }
         if soulMessages.count > 0 {
-            randomReminders.append(randomSoul)
+            randomReminders.append(randomSoul ?? "")
             reminderThree.text = randomSoul
         }
-        if mindMessages.count == 0 && bodyMessages.count == 0 && soulMessages.count == 0 {
-            let alertVC = UIAlertController(title: "Reminders are empty.", message: "All reminder messages are empty.  You will not recieve reminders.  Please add messages.", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertVC, animated: true, completion: nil)
-        }
+        
         debugPrint("randomReminders: \(randomReminders) + \(randomReminders.count)")
         
     }
+    
+    // MARK: Calculate Random Time and Schedule Reminders
     
     func getRandomTimes() {
         randomHours = []
         randomMinutes = []
         
-        //convert default time string to integer arrayy
+        //convert stored default time string to integer arrayy
         let startValue = UserDefaults.standard.string(forKey: "startTime")
         let endValue = UserDefaults.standard.string(forKey: "endTime")
         
-        let start = startValue?.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
-        let end  = endValue?.split { $0 == ":" } .map { (x) -> Int in return Int(String(x))! }
-        
-        debugPrint("Start array is \(start![0]) and \(start![1])")
-        debugPrint("Start array is \(end![0]) and \(end![1])")
-        
+        let start = startValue?.components(separatedBy: ":")
+        let end = endValue?.components(separatedBy: ":")
+                
         //create times for reminders
-        let startHour = start![0]
-        let startMin = start![1]
-        let endHour = end![0]
-        let endMin = end![1]
+        let startHour = Int(start?[0] ?? "") ?? 0
+        let startMin = Int(start?[1] ?? "") ?? 0
+        let endHour = Int(end?[0] ?? "") ?? 0
+        let endMin = Int(end?[1] ?? "") ?? 0
         
-        if startHour == endHour || endHour < startHour || startHour > endHour {
-            //error invalid
-        } else if endHour - startHour <= 1 {
-            var t = 0
-            while (t < randomReminders.count) {
-                randomHours.append(startHour)
-                let mins = Int.random(in: 10 ..< 60)
-                randomMinutes.append(mins)
-                t += 1
-            }
-        } else {
-            var i = 0
-            while (i < randomReminders.count) {
-                // get random number between start and end Time & append random hours
-                let hrs = Int.random(in: startHour..<endHour)
+        // apply time interval limitation conditions
+        if endHour == startHour || endHour < startHour || endHour - startHour <= 2 {
+            let testNumber = startHour + endHour
+            debugPrint("test is : \(testNumber)")
+            showAlert(title: "Time Interval", message: "The time interval is not valid.  A time interval of a minimum of three hours is recommended.")
+        }
+        
+        //select random times if limitations are satisfied
+        var i = 0
+        while (i < randomReminders.count) {
+            // get random number between start and end Time & append random hours
+            if startMin == 0 && endMin == 0 { //if both start and end minutes are 0
+                let hrs = Int.random(in: startHour..<endHour )
                 randomHours.append(hrs)
                 
                 let mins = Int.random(in: 10 ..< 60)
                 randomMinutes.append(mins)
-                i += 1
+                
+            } else if startMin == 30 && endMin == 0 { //if start minutes is 30 and end is 0
+                let hrs = Int.random(in: startHour..<endHour)
+                randomHours.append(hrs)
+                
+                if hrs == startHour { //when the randomly selected hour is the startHour
+                    let mins = Int.random(in: 30 ..< 60) //restrict minutes selection for startHour
+                    randomMinutes.append(mins)
+                } else { // all other hr selections
+                    let mins = Int.random(in: 10 ..< 60 )
+                    randomMinutes.append(mins)
+                }
+                
+            } else if startMin == 0 && endMin == 30 { //if start minutes is 0 and end is 30
+                let hrs = Int.random(in: startHour...endHour) //include the endHour in hr selection
+                randomHours.append(hrs)
+                
+                if hrs == endHour { //when the randomly selected hour is the endHour
+                    let mins = Int.random(in: 10 ..< 30)//restrict the minute selection for endHour
+                    randomMinutes.append(mins)
+                } else {// all othe hr selections
+                    let mins = Int.random(in: 10 ..< 60)
+                    randomMinutes.append(mins)
+                }
+            } else { //both start and end minutes are 30
+                let hrs = Int.random(in: startHour...endHour) //include the endHour in hr selection
+                randomHours.append(hrs)
+                
+                if hrs == startHour {//when the randomly selected hour is starthour
+                    let mins = Int.random(in: 30 ..< 60) //restrict the minute selection
+                    randomMinutes.append(mins)
+                } else if hrs == endHour {//when the randomly selected hour is endHour
+                    let mins = Int.random(in: 10 ..< 30) // restrict the minute selection
+                    randomMinutes.append(mins)
+                } else { //all other hour selections
+                    let mins = Int.random(in: 10 ..< 60)
+                    randomMinutes.append(mins)
+                }
             }
+            i += 1
         }
     }
     
     
     func scheduleReminders(){
-        getRandomTimes()
+        //getRandomTimes()
         var i = 0
         while (i < randomReminders.count) {
+            print("random hours count: \(randomHours.count)")
             let body = randomReminders[i]
             let hour = randomHours[i]
             let minute = randomMinutes[i]
@@ -343,18 +381,18 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
-    func repeat24HrsTimer() {
-        let date = Date(timeIntervalSinceReferenceDate: 60)
-        let timer = Timer(fireAt: date, interval: 7200, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: .common)
-    }
-    
-    @objc func startTimer(){
-        notifications.center.removeAllPendingNotificationRequests()
-        //getCategoryArrays()
-        getRandomReminders()
-        scheduleReminders()
-    }
+//    func repeat24HrsTimer() {
+//        let date = Date(timeIntervalSinceReferenceDate: 60)
+//        let timer = Timer(fireAt: date, interval: 7200, target: self, selector: #selector(startTimer), userInfo: nil, repeats: true)
+//        RunLoop.main.add(timer, forMode: .common)
+//    }
+//
+//    @objc func startTimer(){
+//        notifications.center.removeAllPendingNotificationRequests()
+//        getRandomReminders()
+//        getRandomTimes()
+//        scheduleReminders()
+//    }
 
     // MARK: Activity Indicator and Failure Message
     
@@ -366,8 +404,8 @@ class IntervalViewContoller: UIViewController {
         }
     }
     
-    func showFailure(message: String) {
-        let alertVC = UIAlertController(title: "Daylight Data", message: message, preferredStyle: .alert)
+    func showAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }

@@ -289,18 +289,26 @@ class IntervalViewContoller: UIViewController {
         let end = endValue?.components(separatedBy: ":")
                 
         //create times for reminders
-        let startHour = Int(start?[0] ?? "") ?? 0
+        let startHour = Int(start?[0] ?? "") ?? 9
         let startMin = Int(start?[1] ?? "") ?? 0
-        let endHour = Int(end?[0] ?? "") ?? 0
+        let endHour = Int(end?[0] ?? "") ?? 6
         let endMin = Int(end?[1] ?? "") ?? 0
         
         let check = endHour - startHour
         print("Check result: \(check)")
         
         // apply time interval limitation conditions
-        if ((endHour - startHour == 0) || (endHour < startHour) || (endHour - startHour <= 2)) {
-            showAlert(title: "Time Interval", message: "The time interval is not accepted.  A time interval of a minimum of three hours is recommended.")
+
+        if (endHour - startHour) <= 2 {
+            debugPrint ("Alert should fire now")
+            showAlert(title: "Time Interval", message: "Please enter a time interval greater than three hours.")
+            debugPrint ("Alert should fire now")
         }
+
+//        guard endHour - startHour > 2 else {
+//            showAlert(title: "Time Interval", message: "The time interval is not accepted.  A time interval of a minimum of three hours is recommended.")
+//            return
+//        }
         
         //select random times if limitations are satisfied
         var i = 0

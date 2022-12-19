@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = .black
+
         notifications.requestNotificationAuthorization()
         manager.requestLocationAuthorization()
 

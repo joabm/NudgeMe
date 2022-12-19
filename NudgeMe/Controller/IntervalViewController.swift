@@ -21,7 +21,7 @@ class IntervalViewContoller: UIViewController {
     var randomMinutes: [Int] = []
     var identifiers: [String] = ["mind", "body", "soul"]
     
-    let manager = LocationManager()
+    let manager = LocationManager ()
     let notifications = Notifications ()
     
     let dateFormatter: DateFormatter = {
@@ -35,21 +35,21 @@ class IntervalViewContoller: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var message: Message!
-    var fetchedResultsController:NSFetchedResultsController<Message>!
-    
-    fileprivate func setupFetchedResultsController() {
-        let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
+//    var fetchedResultsController:NSFetchedResultsController<Message>!
+//
+//    fileprivate func setupFetchedResultsController() {
+//        let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//
+//        do {
+//            try fetchedResultsController.performFetch()
+//        } catch {
+//            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+//        }
+//    }
     
     
     // MARK: Outlets
@@ -69,13 +69,11 @@ class IntervalViewContoller: UIViewController {
     @IBAction func datePickerStart(_ sender: Any) {
         let pickerStart = dateFormatter.string(from: datePickerStart.date)
         UserDefaults.standard.set(pickerStart, forKey: "startTime")
-        print(pickerStart)
     }
     
     @IBAction func datePickerEnd(_ sender: Any) {
         let pickerEnd = dateFormatter.string(from: datePickerEnd.date)
         UserDefaults.standard.set(pickerEnd, forKey: "endTime")
-        print(pickerEnd)
     }
     
     @IBAction func toggleTodayButton(_ sender: Any) {
@@ -84,16 +82,16 @@ class IntervalViewContoller: UIViewController {
     }
     
     @IBAction func sendNotificationsButton(_ sender: Any) {
-        getRandomTimes()
-        scheduleReminders()
+        setAndSendReminders()
     }
     
     // MARK: Lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //getLocationData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        //getLocationData()
+//        getRandomReminders()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,7 +161,6 @@ class IntervalViewContoller: UIViewController {
     
     func getDaylightValues(latitude: Double, longitude: Double) {
         DaylightClient.getDaylightHours(latitude: latitude, longitude: longitude) { (data, error) in
-            debugPrint("getDaylightHours call to API has been executed")
             if error == nil {
                 self.setActivityIndicator(false)
                 let sunrise: String = (data?.results.sunrise)!
@@ -271,50 +268,43 @@ class IntervalViewContoller: UIViewController {
             reminderThree.text = randomSoul
         }
         
-        debugPrint("randomReminders: \(randomReminders) + \(randomReminders.count)")
+//        debugPrint("randomReminders: \(randomReminders) + \(randomReminders.count)")
         
     }
     
     // MARK: Calculate Random Time and Schedule Reminders
     
-    func getRandomTimes() {
+    func setAndSendReminders() {
         randomHours = []
         randomMinutes = []
-        
+
         //convert stored default time string to integer array
         let startValue = UserDefaults.standard.string(forKey: "startTime")
         let endValue = UserDefaults.standard.string(forKey: "endTime")
-        
+
         let start = startValue?.components(separatedBy: ":")
         let end = endValue?.components(separatedBy: ":")
-                
-        //create times for reminders
+
+        //create time components as integer for reminders
         let startHour = Int(start?[0] ?? "") ?? 9
         let startMin = Int(start?[1] ?? "") ?? 0
         let endHour = Int(end?[0] ?? "") ?? 6
         let endMin = Int(end?[1] ?? "") ?? 0
         
-        let check = endHour - startHour
-        print("Check result: \(check)")
-        
-        // apply time interval limitation conditions
+        // check for valid interval input
+        let intervalCheck = endHour - startHour
 
-        if (endHour - startHour) <= 2 {
-            debugPrint ("Alert should fire now")
-            showAlert(title: "Time Interval", message: "Please enter a time interval greater than three hours.")
-            debugPrint ("Alert should fire now")
+        guard intervalCheck > 1 else {
+            showAlert(title: "Adjust the Time Interval", message: "Please check the time interval. The time interval must fall in the same day and should be at least two hours long.")
+            return
         }
 
-//        guard endHour - startHour > 2 else {
-//            showAlert(title: "Time Interval", message: "The time interval is not accepted.  A time interval of a minimum of three hours is recommended.")
-//            return
-//        }
-        
-        //select random times if limitations are satisfied
+        // create a randomhours and randomminutes values for each random reminder.  append to array
         var i = 0
         while (i < randomReminders.count) {
             
             // get random number between start and end Time & append random hours array
+            
             if startMin == 0 && endMin == 0 { //if both start and end minutes are 0
                 let hrs = Int.random(in: startHour..<endHour )
                 randomHours.append(hrs)
@@ -360,22 +350,25 @@ class IntervalViewContoller: UIViewController {
                     randomMinutes.append(mins)
                 }
             }
+            
             i += 1
         }
+        
+        scheduleNotifications()
     }
     
     
-    func scheduleReminders(){
+    func scheduleNotifications(){
         var i = 0
         while (i < randomReminders.count) {
-            print("random hours count: \(randomHours.count)")
+            debugPrint("random hours count: \(randomHours.count)")
             let body = randomReminders[i]
             let hour = randomHours[i]
             let minute = randomMinutes[i]
             let identifier = identifiers[i]
             notifications.scheduleNotification(body: body, hour: hour, minute: minute, id: identifier)
             
-            //capture for coredata history
+            //capture reminder history for coredata
             let message = Message(context: context)
             message.text = body
             message.creationDate = Date()
@@ -397,7 +390,7 @@ class IntervalViewContoller: UIViewController {
     
     func showAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
 }

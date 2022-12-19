@@ -534,7 +534,7 @@ Cg
         <scene sceneID="CYl-PR-zS5">
             <objects>
                 <viewController id="s2j-5f-dyC" customClass="IntervalViewContoller" customModule="NudgeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="DbP-bR-qw0" customClass="GradientView" customModule="NudgeMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -697,7 +697,7 @@ Cg
     </scenes>
     <resources>
         <namedColor name="Blue Background">
-            <color red="0.73333333333333328" green="0.83137254901960778" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.73299998044967651" green="0.83099997043609619" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

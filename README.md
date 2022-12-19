@@ -40,6 +40,7 @@
 ## How to build or modify the app in XCode
   - Load the app into Xcode to begin working with the app.
   - Launch the simulator to the the device of your choice
+  - One way to test the notifications is to comment out the 'intervalCheck' test in the setAndSendReminders method on line 271-276 of the  IntervalViewController swift file.  This will allow you to set a minimal interval of 30 minutes for testing purposes.  Remember to un-comment the code when you are finished testing.  This check is there to prevent users from setting a negative or zero interval and allow for some headroom in production.  Users normally won't try to set such short intervals anyway.
 
 
 ## Dependencies 

@@ -35,22 +35,6 @@ class IntervalViewContoller: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var message: Message!
-//    var fetchedResultsController:NSFetchedResultsController<Message>!
-//
-//    fileprivate func setupFetchedResultsController() {
-//        let fetchRequest:NSFetchRequest<Message> = Message.fetchRequest()
-//        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-//        }
-//    }
-    
     
     // MARK: Outlets
     
@@ -87,12 +71,6 @@ class IntervalViewContoller: UIViewController {
     
     // MARK: Lifecycle
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        //getLocationData()
-//        getRandomReminders()
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -105,7 +83,6 @@ class IntervalViewContoller: UIViewController {
         getLocationData()
         getCategoryArrays()
         getRandomReminders()
-        //setupFetchedResultsController()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -359,6 +336,10 @@ class IntervalViewContoller: UIViewController {
     
     
     func scheduleNotifications(){
+        //clears pending notifications
+        notifications.center.removeAllPendingNotificationRequests()
+        
+        //send notifications
         var i = 0
         while (i < randomReminders.count) {
             debugPrint("random hours count: \(randomHours.count)")
@@ -376,6 +357,8 @@ class IntervalViewContoller: UIViewController {
             
             i += 1
         }
+        
+        showAlert(title: "Congratulations!", message: "\(randomReminders.count) reminders have been scheduled. You may move this app to the background.")
     }
 
     // MARK: Activity Indicator and Failure Message

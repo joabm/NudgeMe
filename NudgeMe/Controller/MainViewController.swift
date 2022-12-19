@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     
     let notifications = Notifications()
     let manager = LocationManager()
-    let intervals = IntervalViewContoller()
 
     
     override func viewDidLoad() {

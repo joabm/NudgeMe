@@ -15,7 +15,6 @@
 		488C1197293C245D00AB2916 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C1196293C245D00AB2916 /* Notifications.swift */; };
 		488C1199293C362C00AB2916 /* Location Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C1198293C362C00AB2916 /* Location Manager.swift */; };
 		48A2BE792922B7CD00DA82BC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */; };
-		48A316382921A74100F48C28 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316372921A74100F48C28 /* DataController.swift */; };
 		48A3163C2921A87200F48C28 /* DaylightClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3163B2921A87200F48C28 /* DaylightClient.swift */; };
 		48A3163E2921A8B200F48C28 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A3163D2921A8B200F48C28 /* APIResponse.swift */; };
 		48A316432921AE5500F48C28 /* MindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A316422921AE5500F48C28 /* MindViewController.swift */; };
@@ -39,7 +38,6 @@
 		488C1196293C245D00AB2916 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		488C1198293C362C00AB2916 /* Location Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location Manager.swift"; sourceTree = "<group>"; };
 		48A2BE782922B7CD00DA82BC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
-		48A316372921A74100F48C28 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		48A3163B2921A87200F48C28 /* DaylightClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightClient.swift; sourceTree = "<group>"; };
 		48A3163D2921A8B200F48C28 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		48A316422921AE5500F48C28 /* MindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				4866BC6529332E290013FDEF /* NudgeMe.xcdatamodeld */,
-				48A316372921A74100F48C28 /* DataController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -242,7 +239,6 @@
 				48A316432921AE5500F48C28 /* MindViewController.swift in Sources */,
 				488C1197293C245D00AB2916 /* Notifications.swift in Sources */,
 				48E90D38291767A000755D4B /* MainViewController.swift in Sources */,
-				48A316382921A74100F48C28 /* DataController.swift in Sources */,
 				48E90D34291767A000755D4B /* AppDelegate.swift in Sources */,
 				482417AF29354F770037B3F8 /* Gradient View.swift in Sources */,
 				488C1199293C362C00AB2916 /* Location Manager.swift in Sources */,

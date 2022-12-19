@@ -38,7 +38,7 @@
     notifications.  Your reminders will remain fresh as they pop into notifications throughout the day.
   
 ## How to build or modify the app in XCode
-  - load the app into Xcode to begin working with the app.
+  - Load the app into Xcode to begin working with the app.
   - Launch the simulator to the the device of your choice
 
 

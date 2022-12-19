@@ -11,7 +11,6 @@ import UserNotifications
 class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     let center = UNUserNotificationCenter.current()
-    //center.removeAllPendingNotificationRequests()
     
     func requestNotificationAuthorization() {
         
@@ -37,7 +36,6 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         date.minute = minute
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
                 
         center.add(request) { (error) in
